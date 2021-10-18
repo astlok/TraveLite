@@ -9,4 +9,4 @@
 ### Ментор:
 - [Сергей Алексеев](https://github.com/snalexeev)
 
-Репозиторий бекенда
+[Репозиторий бекенда](https://github.com/astlok/TraveLiteBack)
