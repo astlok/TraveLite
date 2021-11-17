@@ -11,6 +11,10 @@ extension AuthScreenRouter: AuthScreenRouterInput {
     }
     
     func showProfile(with user: UserProfile) {
+        var context = ProfileScreenContext(user: nil, moduleOutput: nil)
+        context.user = user
+        let container = ProfileScreenContainer.assemble(with: context)
+        sourceViewController?.present(container.viewController, animated: true, completion: nil)
         print(user)
     }
     
@@ -22,3 +26,8 @@ extension AuthScreenRouter: AuthScreenRouterInput {
         sourceViewController?.present(alertController, animated: true, completion: nil)
     }
 }
+//    *
+//   ***
+//  *****
+// *******
+//*********
