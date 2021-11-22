@@ -50,6 +50,7 @@ final class ApiManager: ApiManagerDescription {
             
             do {
                 var userProfile: UserProfile = UserProfile(id: 0, email: "", nickname: "", img: "", authToken: "", treksNumber: 0)
+                print(try? JSONSerialization.jsonObject(with: data, options: []))
                 let result = try decoder.decode(UserCreateResponse.self, from: data)
                 userProfile.nickname = user.nickname
                 userProfile.email = user.email
