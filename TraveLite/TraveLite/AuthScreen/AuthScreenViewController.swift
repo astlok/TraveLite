@@ -47,7 +47,6 @@ final class AuthScreenViewController: UIViewController {
 		super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
-//        assignBackground()
 
         containerView.translatesAutoresizingMaskIntoConstraints = false
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -118,17 +117,6 @@ final class AuthScreenViewController: UIViewController {
         
         output.didTapSubmitButton(with: user)
     }
-
-//    func assignBackground() {
-//        var imageView : UIImageView!
-//        imageView = UIImageView(frame: view.bounds)
-//        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-//        imageView.clipsToBounds = true
-//        imageView.image = background
-//        imageView.center = view.center
-//        view.addSubview(imageView)
-//        self.view.sendSubviewToBack(imageView)
-//    }
 }
 
 extension AuthScreenViewController: AuthScreenViewInput {
