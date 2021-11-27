@@ -18,15 +18,12 @@ final class ProfileScreenContainer {
         let interactor = ProfileScreenInteractor()
         let presenter = ProfileScreenPresenter(router: router, interactor: interactor)
         let viewController = ProfileScreenViewController(output: presenter, user: context.user)
-//        viewController.userData = context.user
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
         
-//        router.sourceViewController = viewController
-
         return ProfileScreenContainer(view: viewController, input: presenter, router: router)
 	}
 

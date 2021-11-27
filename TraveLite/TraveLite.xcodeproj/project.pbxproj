@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1369CE19274E957B009DE61A /* TabBarControllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE13274E957B009DE61A /* TabBarControllPresenter.swift */; };
+		1369CE1A274E957B009DE61A /* TabBarControllRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE14274E957B009DE61A /* TabBarControllRouter.swift */; };
+		1369CE1B274E957B009DE61A /* TabBarControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE15274E957B009DE61A /* TabBarControllViewController.swift */; };
+		1369CE1C274E957B009DE61A /* TabBarControllProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE16274E957B009DE61A /* TabBarControllProtocols.swift */; };
+		1369CE1D274E957B009DE61A /* TabBarControllInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE17274E957B009DE61A /* TabBarControllInteractor.swift */; };
+		1369CE1E274E957B009DE61A /* TabBarControllContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE18274E957B009DE61A /* TabBarControllContainer.swift */; };
 		13FC46F5274427F6003D59F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F4274427F6003D59F5 /* AppDelegate.swift */; };
 		13FC46F7274427F6003D59F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F6274427F6003D59F5 /* SceneDelegate.swift */; };
 		13FC46F9274427F6003D59F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F8274427F6003D59F5 /* ViewController.swift */; };
@@ -40,6 +46,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1369CE13274E957B009DE61A /* TabBarControllPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllPresenter.swift; sourceTree = "<group>"; };
+		1369CE14274E957B009DE61A /* TabBarControllRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllRouter.swift; sourceTree = "<group>"; };
+		1369CE15274E957B009DE61A /* TabBarControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllViewController.swift; sourceTree = "<group>"; };
+		1369CE16274E957B009DE61A /* TabBarControllProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllProtocols.swift; sourceTree = "<group>"; };
+		1369CE17274E957B009DE61A /* TabBarControllInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllInteractor.swift; sourceTree = "<group>"; };
+		1369CE18274E957B009DE61A /* TabBarControllContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllContainer.swift; sourceTree = "<group>"; };
 		13FC46F1274427F6003D59F5 /* TraveLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraveLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13FC46F4274427F6003D59F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13FC46F6274427F6003D59F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +97,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1369CE12274E9556009DE61A /* TabBarControll */ = {
+			isa = PBXGroup;
+			children = (
+				1369CE13274E957B009DE61A /* TabBarControllPresenter.swift */,
+				1369CE14274E957B009DE61A /* TabBarControllRouter.swift */,
+				1369CE15274E957B009DE61A /* TabBarControllViewController.swift */,
+				1369CE16274E957B009DE61A /* TabBarControllProtocols.swift */,
+				1369CE17274E957B009DE61A /* TabBarControllInteractor.swift */,
+				1369CE18274E957B009DE61A /* TabBarControllContainer.swift */,
+			);
+			path = TabBarControll;
+			sourceTree = "<group>";
+		};
 		13FC46E8274427F6003D59F5 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +129,7 @@
 		13FC46F3274427F6003D59F5 /* TraveLite */ = {
 			isa = PBXGroup;
 			children = (
+				1369CE12274E9556009DE61A /* TabBarControll */,
 				2AA8AC59274439C7002B8358 /* ProfileScreen */,
 				13FC472C274428F0003D59F5 /* Components */,
 				13FC4727274428A8003D59F5 /* Fonts */,
@@ -264,6 +290,7 @@
 				13FC47212744289D003D59F5 /* AuthScreenRouter.swift in Sources */,
 				13FC47242744289D003D59F5 /* AuthScreenInteractor.swift in Sources */,
 				13FC471927442887003D59F5 /* RegScreenRouter.swift in Sources */,
+				1369CE1C274E957B009DE61A /* TabBarControllProtocols.swift in Sources */,
 				2AA8AC64274439E3002B8358 /* ProfileScreenInteractor.swift in Sources */,
 				13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */,
 				13FC46F9274427F6003D59F5 /* ViewController.swift in Sources */,
@@ -273,13 +300,18 @@
 				13FC471527442887003D59F5 /* RegScreenProtocols.swift in Sources */,
 				13FC47222744289D003D59F5 /* AuthScreenViewController.swift in Sources */,
 				2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */,
+				1369CE1A274E957B009DE61A /* TabBarControllRouter.swift in Sources */,
+				1369CE1D274E957B009DE61A /* TabBarControllInteractor.swift in Sources */,
 				13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */,
 				13FC47252744289D003D59F5 /* AuthScreenContainer.swift in Sources */,
+				1369CE19274E957B009DE61A /* TabBarControllPresenter.swift in Sources */,
 				13FC46F5274427F6003D59F5 /* AppDelegate.swift in Sources */,
 				13FC471627442887003D59F5 /* RegScreenContainer.swift in Sources */,
 				2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */,
 				2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */,
+				1369CE1B274E957B009DE61A /* TabBarControllViewController.swift in Sources */,
 				13FC47232744289D003D59F5 /* AuthScreenPresenter.swift in Sources */,
+				1369CE1E274E957B009DE61A /* TabBarControllContainer.swift in Sources */,
 				13FC470C27442870003D59F5 /* ApiManager.swift in Sources */,
 				13FC470A27442859003D59F5 /* UserModel.swift in Sources */,
 				13FC472F274428FD003D59F5 /* InputView.swift in Sources */,

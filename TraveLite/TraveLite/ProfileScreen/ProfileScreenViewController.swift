@@ -22,11 +22,9 @@ final class ProfileScreenViewController: UIViewController {
     init(output: ProfileScreenViewOutput, user: UserProfile?) {
         self.output = output
         self.user = user
-//        self.user = userData
-//        self.user = userData
+
 
         super.init(nibName: nil, bundle: nil)
-//        modalPresentationStyle = .fullScreen
         profileImageView.image = UIImage(named:"bars")
         profileImageView.layer.cornerRadius = 75
         profileImageView.clipsToBounds = true
@@ -40,6 +38,8 @@ final class ProfileScreenViewController: UIViewController {
         raiting.text = "Рейтинг 0.0"
         raiting.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         raiting.font = UIFont(name: "Montserrat-Regular", size: 12)
+        
+        tabBarItem = UITabBarItem(title: "", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
         
         view.backgroundColor = .white
     }

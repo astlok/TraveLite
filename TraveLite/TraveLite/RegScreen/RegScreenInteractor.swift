@@ -25,4 +25,18 @@ extension RegScreenInteractor: RegScreenInteractorInput {
             }
         })
     }
+    
+    func getUser(with user: UserAuth) {
+        apiManager.authUser(with: user, completion: { [weak output] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    output?.didAuth(with: response)
+                case .failure(let error):
+                    output?.didFail(with: error)
+                        
+                }
+            }
+        })
+    }
 }

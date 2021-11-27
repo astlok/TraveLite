@@ -1,120 +1,295 @@
 import UIKit
 
 final class RegScreenViewController: UIViewController {
-	private let output: RegScreenViewOutput
+    private let output: RegScreenViewOutput
+    
+    private var isAuthScreen = true
 
-    let label: UILabel = UILabel(frame: CGRect(x: 67, y: 0, width: 166.00, height: 30.00))
-    let loginInput: InputView = InputView(frame: CGRect(x: 0, y: 42, width: 300.00, height: 30.00));
-    let emailInput: InputView = InputView(frame: CGRect(x: 0, y: 84, width: 300.00, height: 30.00));
-    let passwordInput: InputView = InputView(frame: CGRect(x: 0, y: 126, width: 300.00, height: 30.00));
-    let confirmPasswordInput: InputView = InputView(frame: CGRect(x: 0, y: 168, width: 300.00, height: 30.00));
-    let submitButton: SubmitButtonView = SubmitButtonView(frame: CGRect(x: 0, y: 210, width: 300.00, height: 30.00));
-    let containerView = UIView()
-    var bottomConstraint: NSLayoutConstraint?
-
-    init(output: RegScreenViewOutput) {
-        self.output = output
-
-        super.init(nibName: nil, bundle: nil)
- 
-//        modalPresentationStyle = .fullScreen
-
+    let textLabel: UILabel = {
+        let label = UILabel()
         label.textAlignment = .center
-        label.text = "Регистрация"
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         label.font = UIFont(name: "Montserrat-Regular", size: 24)
-
-        loginInput.placeholder = "Введите логин"
-        emailInput.placeholder = "Введите e-mail"
-        passwordInput.placeholder = "Введите пароль"
-        passwordInput.isSecureTextEntry = true
-        confirmPasswordInput.placeholder = "Повторите пароль"
-        confirmPasswordInput.isSecureTextEntry = true
-
-        //TODO: DEL THIS IN PROD
-        passwordInput.autocorrectionType = .no
-        confirmPasswordInput.autocorrectionType = .no
-        //
+        label.translatesAutoresizingMaskIntoConstraints = false
         
-        submitButton.setTitle("Создать аккаунт", for: .normal)
-        submitButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 14)
-        submitButton.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
+        return label
+    }()
 
-        submitButton.addTarget(self, action: #selector(tapSubmitButton), for: .touchUpInside)
-
+    let loginInput: InputView = {
+        let input = InputView()
+        input.placeholder = "Введите логин"
+        input.translatesAutoresizingMaskIntoConstraints = false
+        
+        return input
+    }()
+    
+    let emailInput: InputView = {
+        let input = InputView()
+        input.placeholder = "Введите e-mail"
+        input.translatesAutoresizingMaskIntoConstraints = false
+        
+        return input
+    }()
+    
+    let passwordInput: InputView = {
+        let input = InputView()
+        input.placeholder = "Введите пароль"
+        input.isSecureTextEntry = true
+        input.translatesAutoresizingMaskIntoConstraints = false
+        
+        return input
+    }()
+    
+    let confirmPasswordInput: InputView = {
+        let input = InputView()
+        input.placeholder = "Повторите пароль"
+        input.isSecureTextEntry = true
+        input.translatesAutoresizingMaskIntoConstraints = false
+        
+        return input
+    }()
+    
+    let submitButton: SubmitButtonView = {
+        let button = SubmitButtonView()
+        button.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 14)
+        button.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
+        button.addTarget(self, action: #selector(tapSubmitButton), for: .touchUpInside)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    let regAuthButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
+        button.addTarget(self, action: #selector(tapRegAuthButton), for: .touchUpInside)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    let contentView = UIView()
+    let scrollView = UIScrollView()
+    var bottomConstraint: NSLayoutConstraint?
+    
+    init(output: RegScreenViewOutput) {
+        self.output = output
+        
+        super.init(nibName: nil, bundle: nil)
+        
         view.backgroundColor = .white
+        
+        modalPresentationStyle = .fullScreen
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil);
-
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        containerView.addSubview(label)
-        containerView.addSubview(loginInput)
-        containerView.addSubview(emailInput)
-        containerView.addSubview(passwordInput)
-        containerView.addSubview(confirmPasswordInput)
-        containerView.addSubview(submitButton)
         
-        view.addSubview(containerView)
-        containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        bottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        bottomConstraint?.isActive = true
-	}
-    
+        setupScrollView()
+        
+        setupAuthViews()
+    }
+
     @objc
     func tapSubmitButton() {
         //TODO: сделать валидацию
-        var user: UserCreateRequest = UserCreateRequest.init(email: "", nickname: "", password: "")
-        if let email = emailInput.text {
-            user.email = email
+        if !isAuthScreen {
+            var user: UserCreateRequest = UserCreateRequest.init(email: "", nickname: "", password: "")
+            if let email = emailInput.text {
+                user.email = email
+            } else {
+                print("NOT VALID")
+            }
+            if let nickname = loginInput.text {
+                user.nickname = nickname
+            } else {
+                print("NOT VALID")
+            }
+            if let password = passwordInput.text {
+                user.password = password
+            } else {
+                print("NOT VALID")
+            }
+
+            output.didTapRegSubmitButton(with: user)
         } else {
-            print("NOT VALID")
+            var user: UserAuth = UserAuth.init(email: "", password: "")
+            
+            if let email = emailInput.text {
+                user.email = email
+            } else {
+                print("NOT VALID")
+            }
+            
+            if let password = passwordInput.text {
+                user.password = password
+            } else {
+                print("NOT VALID")
+            }
+            
+            output.didTapAuthSubmitButton(with: user)
         }
-        if let nickname = loginInput.text {
-            user.nickname = nickname
-        } else {
-            print("NOT VALID")
-        }
-        if let password = passwordInput.text {
-            user.password = password
-        } else {
-            print("NOT VALID")
-        }
-        
-        output.didTapSubmitButton(with: user)
     }
-    
+
+    @objc
+    func tapRegAuthButton() {
+        if isAuthScreen {
+            setupRegViews()
+            isAuthScreen = false
+        } else {
+            setupAuthViews()
+            isAuthScreen = true
+        }
+    }
+
     @objc
     func keyboardWillShow(sender: NSNotification) {
         bottomConstraint?.isActive = false
+        
+        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            bottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardHeight)
+            bottomConstraint?.isActive = true
+            
+            scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height + 150)
+            self.view.layoutIfNeeded()
+        }
+    }
 
-        bottomConstraint = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+    @objc
+    func keyboardWillHide(sender: NSNotification) {
+        bottomConstraint?.isActive = false
+        
+        bottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomConstraint?.isActive = true
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 150)
 
         self.view.layoutIfNeeded()
     }
     
-    @objc
-    func keyboardWillHide(sender: NSNotification) {
-        bottomConstraint?.isActive = false
+    
+    func setupScrollView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
 
-        bottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        bottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomConstraint?.isActive = true
+        
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
 
+        contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
+    }
+    
+    func setupRegViews(){
+        contentView.subviews.forEach({ $0.removeFromSuperview()})
+        
+        textLabel.text = "Регистрация"
+        contentView.addSubview(textLabel)
+        textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.size.height / 4).isActive = true
+        textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        
+        
+        contentView.addSubview(loginInput)
+        loginInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        loginInput.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 15).isActive = true
+        loginInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        loginInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        contentView.addSubview(emailInput)
+        emailInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        emailInput.topAnchor.constraint(equalTo: loginInput.bottomAnchor, constant: 15).isActive = true
+        emailInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        emailInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        contentView.addSubview(passwordInput)
+        passwordInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        passwordInput.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: 15).isActive = true
+        passwordInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        passwordInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        contentView.addSubview(confirmPasswordInput)
+        confirmPasswordInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        confirmPasswordInput.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: 15).isActive = true
+        confirmPasswordInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        confirmPasswordInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        contentView.addSubview(submitButton)
+        submitButton.setTitle("Создать аккаунт", for: .normal)
+        submitButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        submitButton.topAnchor.constraint(equalTo: confirmPasswordInput.bottomAnchor, constant: 15).isActive = true
+        submitButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        submitButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        regAuthButton.setTitle("Авторизация", for: .normal)
+        contentView.addSubview(regAuthButton)
+        regAuthButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        regAuthButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 15).isActive = true
+        regAuthButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        regAuthButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
         self.view.layoutIfNeeded()
     }
+    
+    func setupAuthViews(){
+        contentView.subviews.forEach({ $0.removeFromSuperview()})
+        
+        textLabel.text = "Авторизация"
+        contentView.addSubview(textLabel)
+        textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.size.height / 4).isActive = true
+        textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        
+        
+        contentView.addSubview(emailInput)
+        emailInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        emailInput.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 15).isActive = true
+        emailInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        emailInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        
+        contentView.addSubview(passwordInput)
+        passwordInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        passwordInput.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: 15).isActive = true
+        passwordInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        passwordInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        contentView.addSubview(submitButton)
+        submitButton.setTitle("Войти", for: .normal)
+        submitButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        submitButton.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: 15).isActive = true
+        submitButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        submitButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        regAuthButton.setTitle("Регистрация", for: .normal)
+        contentView.addSubview(regAuthButton)
+        regAuthButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        regAuthButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 15).isActive = true
+        regAuthButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
+        regAuthButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        self.view.layoutIfNeeded()
+    }
+    
 }
 
 extension RegScreenViewController: RegScreenViewInput {

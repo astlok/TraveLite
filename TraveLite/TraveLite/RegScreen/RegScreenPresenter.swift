@@ -17,13 +17,21 @@ extension RegScreenPresenter: RegScreenModuleInput {
 }
 
 extension RegScreenPresenter: RegScreenViewOutput {
-    func didTapSubmitButton(with user: UserCreateRequest) {
+    func didTapAuthSubmitButton(with user: UserAuth) {
+        self.interactor.getUser(with: user)
+    }
+    
+    func didTapRegSubmitButton(with user: UserCreateRequest) {
         self.interactor.regUser(with: user)
     }
 }
 
 extension RegScreenPresenter: RegScreenInteractorOutput {
     func didReg(with user: UserProfile) {
+        router.showProfile(with: user)
+    }
+    
+    func didAuth(with user: UserProfile) {
         router.showProfile(with: user)
     }
     

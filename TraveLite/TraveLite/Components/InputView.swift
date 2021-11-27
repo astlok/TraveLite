@@ -16,6 +16,9 @@ class InputView: UITextField {
         self.backgroundColor = .white
         self.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         self.layer.cornerRadius = 10
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 0.5
+
         self.autocapitalizationType = .none
         self.font = UIFont(name: "Montserrat-Light", size: 16)
     }
