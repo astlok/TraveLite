@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class ProfileScreenPresenter {
 	weak var view: ProfileScreenViewInput?
@@ -24,8 +25,18 @@ final class ProfileScreenPresenter {
 extension ProfileScreenPresenter: ProfileScreenModuleInput {
 }
 
-extension ProfileScreenPresenter: ProfileScreenViewOutput {
+extension ProfileScreenPresenter: ProfileScreenViewOutput {    
+    func didSelectedProfileImage(image: UIImage, id: UInt64) {
+        interactor.changeProfileImage(image: image, id: id)
+    }
 }
 
 extension ProfileScreenPresenter: ProfileScreenInteractorOutput {
+    func didChangeImage(with user: UserImage) {
+        view?.displayImage(image: user.image)
+    }
+    
+    func didFail(with error: Error) {
+        router.showError(with: error.localizedDescription)
+    }
 }

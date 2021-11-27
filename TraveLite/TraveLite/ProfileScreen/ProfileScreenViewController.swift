@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ProfileScreenViewController: UIViewController {
 	private let output: ProfileScreenViewOutput
@@ -31,6 +32,7 @@ final class ProfileScreenViewController: UIViewController {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tabOnImage))
         profileImageView.addGestureRecognizer(tapGR)
         profileImageView.isUserInteractionEnabled = true
+        profileImageView.contentMode = .scaleToFill
         
         label.textAlignment = .center
         label.text = user?.nickname ?? "Маргарита Румынская"
@@ -170,7 +172,7 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            profileImageView.image = editedImage
+            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0)
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImageView.image = originalImage
         }
@@ -179,5 +181,10 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
 }
 
 extension ProfileScreenViewController: ProfileScreenViewInput {
+    func displayImage(image: String) {
+        let url = URL(string: image)
+        profileImageView.kf.setImage(with: url)
+    }
+    
 }
 

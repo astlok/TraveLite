@@ -33,6 +33,7 @@
 		2AA8AC63274439E3002B8358 /* ProfileScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5D274439E3002B8358 /* ProfileScreenProtocols.swift */; };
 		2AA8AC64274439E3002B8358 /* ProfileScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5E274439E3002B8358 /* ProfileScreenInteractor.swift */; };
 		2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5F274439E3002B8358 /* ProfileScreenContainer.swift */; };
+		36155964275259EF003805E2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 36155963275259EF003805E2 /* Kingfisher */; };
 		364ADA73274FE4E000C0C43E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364ADA72274FE4E000C0C43E /* Montserrat-Light.ttf */; };
 		364ADA75274FE55000C0C43E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364ADA74274FE54F00C0C43E /* Montserrat-Regular.ttf */; };
 		364ADA782750036600C0C43E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364ADA772750036600C0C43E /* AlertService.swift */; };
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36155964275259EF003805E2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +210,9 @@
 			dependencies = (
 			);
 			name = TraveLite;
+			packageProductDependencies = (
+				36155963275259EF003805E2 /* Kingfisher */,
+			);
 			productName = TraveLite;
 			productReference = 13FC46F1274427F6003D59F5 /* TraveLite.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +241,9 @@
 				Base,
 			);
 			mainGroup = 13FC46E8274427F6003D59F5;
+			packageReferences = (
+				36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 13FC46F2274427F6003D59F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -485,6 +493,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36155963275259EF003805E2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 13FC46E9274427F6003D59F5 /* Project object */;
 }

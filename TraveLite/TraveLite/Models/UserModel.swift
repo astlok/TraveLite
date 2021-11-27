@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct UserAuth: Encodable {
     var email: String
@@ -19,6 +20,11 @@ struct UserCreateResponse: Decodable {
         case id
         case authToken = "auth_token"
     }
+}
+
+struct UserImage: Encodable, Decodable {
+    var image: String
+    var id: UInt64
 }
 
 struct UserProfile: Decodable {

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 enum NetworkError: Error{
     case unexpected
@@ -8,14 +9,58 @@ protocol ApiManagerDescription {
     func regUser(with user: UserCreateRequest, completion: @escaping (Result<UserProfile, Error>) -> Void)
     
     func authUser(with user: UserAuth, completion: @escaping (Result<UserProfile, Error>) -> Void)
+    
+    func changeProfileImage(with userImage: UserImage, completion: @escaping (Result<UserImage, Error>) -> Void)
 }
 
 final class ApiManager: ApiManagerDescription {
-    
     static let shared: ApiManagerDescription = ApiManager()
     
     private init() {}
-
+    
+    func changeProfileImage(with userImage: UserImage, completion: @escaping (Result<UserImage, Error>) -> Void) {
+        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profileImage") else {
+            completion(.failure(NetworkError.unexpected))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let encoder = JSONEncoder()
+        
+        do {
+            request.httpBody = try encoder.encode(userImage)
+        } catch let error {
+            completion(.failure(error))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NetworkError.unexpected))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                var userProfile: UserImage = UserImage(image: "", id: 0)
+                let result = try decoder.decode(UserImage.self, from: data)
+                userProfile.image = result.image
+                userProfile.id = result.id
+                completion(.success(userProfile))
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
     
     func regUser(with user: UserCreateRequest, completion: @escaping (Result<UserProfile, Error>) -> Void) {
         guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile") else {
