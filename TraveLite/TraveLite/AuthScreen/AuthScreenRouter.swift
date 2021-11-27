@@ -6,7 +6,7 @@ final class AuthScreenRouter {
 
 extension AuthScreenRouter: AuthScreenRouterInput {
     func showRegScreen() {
-        let container = RegScreenContainer.assemble(with: .init())
+        let container = AuthRegScreenContainer.assemble(with: .init())
         sourceViewController?.present(container.viewController, animated: true, completion: nil)
     }
     

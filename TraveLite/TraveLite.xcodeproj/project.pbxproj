@@ -21,12 +21,12 @@
 		13FC4701274427F8003D59F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */; };
 		13FC470A27442859003D59F5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470927442859003D59F5 /* UserModel.swift */; };
 		13FC470C27442870003D59F5 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470B27442870003D59F5 /* ApiManager.swift */; };
-		13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470E27442887003D59F5 /* RegScreenPresenter.swift */; };
-		13FC471527442887003D59F5 /* RegScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470F27442887003D59F5 /* RegScreenProtocols.swift */; };
-		13FC471627442887003D59F5 /* RegScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471027442887003D59F5 /* RegScreenContainer.swift */; };
-		13FC471727442887003D59F5 /* RegScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471127442887003D59F5 /* RegScreenViewController.swift */; };
-		13FC471827442887003D59F5 /* RegScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471227442887003D59F5 /* RegScreenInteractor.swift */; };
-		13FC471927442887003D59F5 /* RegScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471327442887003D59F5 /* RegScreenRouter.swift */; };
+		13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470E27442887003D59F5 /* AuthRegScreenPresenter.swift */; };
+		13FC471527442887003D59F5 /* AuthRegScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470F27442887003D59F5 /* AuthRegScreenProtocols.swift */; };
+		13FC471627442887003D59F5 /* AuthRegScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471027442887003D59F5 /* AuthRegScreenContainer.swift */; };
+		13FC471727442887003D59F5 /* AuthRegScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471127442887003D59F5 /* AuthRegScreenController.swift */; };
+		13FC471827442887003D59F5 /* AuthRegScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471227442887003D59F5 /* AuthRegScreenInteractor.swift */; };
+		13FC471927442887003D59F5 /* AuthRegScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471327442887003D59F5 /* AuthRegScreenRouter.swift */; };
 		13FC47212744289D003D59F5 /* AuthScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471B2744289D003D59F5 /* AuthScreenRouter.swift */; };
 		13FC47222744289D003D59F5 /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471C2744289D003D59F5 /* AuthScreenViewController.swift */; };
 		13FC47232744289D003D59F5 /* AuthScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471D2744289D003D59F5 /* AuthScreenPresenter.swift */; };
@@ -62,12 +62,12 @@
 		13FC4702274427F8003D59F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13FC470927442859003D59F5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		13FC470B27442870003D59F5 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
-		13FC470E27442887003D59F5 /* RegScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenPresenter.swift; sourceTree = "<group>"; };
-		13FC470F27442887003D59F5 /* RegScreenProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenProtocols.swift; sourceTree = "<group>"; };
-		13FC471027442887003D59F5 /* RegScreenContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenContainer.swift; sourceTree = "<group>"; };
-		13FC471127442887003D59F5 /* RegScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenViewController.swift; sourceTree = "<group>"; };
-		13FC471227442887003D59F5 /* RegScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenInteractor.swift; sourceTree = "<group>"; };
-		13FC471327442887003D59F5 /* RegScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenRouter.swift; sourceTree = "<group>"; };
+		13FC470E27442887003D59F5 /* AuthRegScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenPresenter.swift; sourceTree = "<group>"; };
+		13FC470F27442887003D59F5 /* AuthRegScreenProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenProtocols.swift; sourceTree = "<group>"; };
+		13FC471027442887003D59F5 /* AuthRegScreenContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenContainer.swift; sourceTree = "<group>"; };
+		13FC471127442887003D59F5 /* AuthRegScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenController.swift; sourceTree = "<group>"; };
+		13FC471227442887003D59F5 /* AuthRegScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenInteractor.swift; sourceTree = "<group>"; };
+		13FC471327442887003D59F5 /* AuthRegScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenRouter.swift; sourceTree = "<group>"; };
 		13FC471B2744289D003D59F5 /* AuthScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenRouter.swift; sourceTree = "<group>"; };
 		13FC471C2744289D003D59F5 /* AuthScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
 		13FC471D2744289D003D59F5 /* AuthScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenPresenter.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 				13FC4727274428A8003D59F5 /* Fonts */,
 				13FC47082744283C003D59F5 /* Models */,
 				13FC471A27442890003D59F5 /* AuthScreen */,
-				13FC470D27442879003D59F5 /* RegScreen */,
+				13FC470D27442879003D59F5 /* AuthRegScreen */,
 				13FC470B27442870003D59F5 /* ApiManager.swift */,
 				13FC46F4274427F6003D59F5 /* AppDelegate.swift */,
 				13FC46F6274427F6003D59F5 /* SceneDelegate.swift */,
@@ -156,17 +156,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		13FC470D27442879003D59F5 /* RegScreen */ = {
+		13FC470D27442879003D59F5 /* AuthRegScreen */ = {
 			isa = PBXGroup;
 			children = (
-				13FC471027442887003D59F5 /* RegScreenContainer.swift */,
-				13FC471227442887003D59F5 /* RegScreenInteractor.swift */,
-				13FC470E27442887003D59F5 /* RegScreenPresenter.swift */,
-				13FC470F27442887003D59F5 /* RegScreenProtocols.swift */,
-				13FC471327442887003D59F5 /* RegScreenRouter.swift */,
-				13FC471127442887003D59F5 /* RegScreenViewController.swift */,
+				13FC471027442887003D59F5 /* AuthRegScreenContainer.swift */,
+				13FC471227442887003D59F5 /* AuthRegScreenInteractor.swift */,
+				13FC470E27442887003D59F5 /* AuthRegScreenPresenter.swift */,
+				13FC470F27442887003D59F5 /* AuthRegScreenProtocols.swift */,
+				13FC471327442887003D59F5 /* AuthRegScreenRouter.swift */,
+				13FC471127442887003D59F5 /* AuthRegScreenController.swift */,
 			);
-			path = RegScreen;
+			path = AuthRegScreen;
 			sourceTree = "<group>";
 		};
 		13FC471A27442890003D59F5 /* AuthScreen */ = {
@@ -289,24 +289,24 @@
 				2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */,
 				13FC47212744289D003D59F5 /* AuthScreenRouter.swift in Sources */,
 				13FC47242744289D003D59F5 /* AuthScreenInteractor.swift in Sources */,
-				13FC471927442887003D59F5 /* RegScreenRouter.swift in Sources */,
+				13FC471927442887003D59F5 /* AuthRegScreenRouter.swift in Sources */,
 				1369CE1C274E957B009DE61A /* TabBarControllProtocols.swift in Sources */,
 				2AA8AC64274439E3002B8358 /* ProfileScreenInteractor.swift in Sources */,
 				13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */,
 				13FC46F9274427F6003D59F5 /* ViewController.swift in Sources */,
-				13FC471827442887003D59F5 /* RegScreenInteractor.swift in Sources */,
-				13FC471727442887003D59F5 /* RegScreenViewController.swift in Sources */,
+				13FC471827442887003D59F5 /* AuthRegScreenInteractor.swift in Sources */,
+				13FC471727442887003D59F5 /* AuthRegScreenController.swift in Sources */,
 				2AA8AC63274439E3002B8358 /* ProfileScreenProtocols.swift in Sources */,
-				13FC471527442887003D59F5 /* RegScreenProtocols.swift in Sources */,
+				13FC471527442887003D59F5 /* AuthRegScreenProtocols.swift in Sources */,
 				13FC47222744289D003D59F5 /* AuthScreenViewController.swift in Sources */,
 				2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */,
 				1369CE1A274E957B009DE61A /* TabBarControllRouter.swift in Sources */,
 				1369CE1D274E957B009DE61A /* TabBarControllInteractor.swift in Sources */,
-				13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */,
+				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
 				13FC47252744289D003D59F5 /* AuthScreenContainer.swift in Sources */,
 				1369CE19274E957B009DE61A /* TabBarControllPresenter.swift in Sources */,
 				13FC46F5274427F6003D59F5 /* AppDelegate.swift in Sources */,
-				13FC471627442887003D59F5 /* RegScreenContainer.swift in Sources */,
+				13FC471627442887003D59F5 /* AuthRegScreenContainer.swift in Sources */,
 				2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */,
 				2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */,
 				1369CE1B274E957B009DE61A /* TabBarControllViewController.swift in Sources */,

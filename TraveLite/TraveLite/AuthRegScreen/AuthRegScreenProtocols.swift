@@ -1,28 +1,28 @@
 import Foundation
 
-protocol RegScreenModuleInput {
-	var moduleOutput: RegScreenModuleOutput? { get }
+protocol AuthRegScreenModuleInput {
+	var moduleOutput: AuthRegScreenModuleOutput? { get }
 }
 
-protocol RegScreenModuleOutput: AnyObject {
+protocol AuthRegScreenModuleOutput: AnyObject {
 }
 
-protocol RegScreenViewInput: AnyObject {
+protocol AuthRegScreenViewInput: AnyObject {
 }
 
-protocol RegScreenViewOutput: AnyObject {
+protocol AuthRegScreenViewOutput: AnyObject {
     func didTapRegSubmitButton(with user: UserCreateRequest)
     
     func didTapAuthSubmitButton(with user: UserAuth)
 }
 
-protocol RegScreenInteractorInput: AnyObject {
+protocol AuthRegScreenInteractorInput: AnyObject {
     func regUser(with user: UserCreateRequest)
     
     func getUser(with user: UserAuth)
 }
 
-protocol RegScreenInteractorOutput: AnyObject {
+protocol AuthRegScreenInteractorOutput: AnyObject {
     func didReg(with user: UserProfile)
     
     func didAuth(with user: UserProfile)
@@ -30,7 +30,7 @@ protocol RegScreenInteractorOutput: AnyObject {
     func didFail(with error: Error)
 }
 
-protocol RegScreenRouterInput: AnyObject {
+protocol AuthRegScreenRouterInput: AnyObject {
     func showProfile(with user: UserProfile)
     
     func showError(with text: String)

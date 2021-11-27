@@ -1,22 +1,22 @@
 import Foundation
 
-final class RegScreenPresenter {
-	weak var view: RegScreenViewInput?
-    weak var moduleOutput: RegScreenModuleOutput?
+final class AuthRegScreenPresenter {
+	weak var view: AuthRegScreenViewInput?
+    weak var moduleOutput: AuthRegScreenModuleOutput?
 
-	private let router: RegScreenRouterInput
-	private let interactor: RegScreenInteractorInput
+	private let router: AuthRegScreenRouterInput
+	private let interactor: AuthRegScreenInteractorInput
 
-    init(router: RegScreenRouterInput, interactor: RegScreenInteractorInput) {
+    init(router: AuthRegScreenRouterInput, interactor: AuthRegScreenInteractorInput) {
         self.router = router
         self.interactor = interactor
     }
 }
 
-extension RegScreenPresenter: RegScreenModuleInput {
+extension AuthRegScreenPresenter: AuthRegScreenModuleInput {
 }
 
-extension RegScreenPresenter: RegScreenViewOutput {
+extension AuthRegScreenPresenter: AuthRegScreenViewOutput {
     func didTapAuthSubmitButton(with user: UserAuth) {
         self.interactor.getUser(with: user)
     }
@@ -26,7 +26,7 @@ extension RegScreenPresenter: RegScreenViewOutput {
     }
 }
 
-extension RegScreenPresenter: RegScreenInteractorOutput {
+extension AuthRegScreenPresenter: AuthRegScreenInteractorOutput {
     func didReg(with user: UserProfile) {
         router.showProfile(with: user)
     }

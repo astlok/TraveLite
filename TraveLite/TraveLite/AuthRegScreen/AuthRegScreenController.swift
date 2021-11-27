@@ -1,7 +1,7 @@
 import UIKit
 
-final class RegScreenViewController: UIViewController {
-    private let output: RegScreenViewOutput
+final class AuthRegScreenViewController: UIViewController {
+    private let output: AuthRegScreenViewOutput
     
     private var isAuthScreen = true
 
@@ -70,11 +70,13 @@ final class RegScreenViewController: UIViewController {
         return button
     }()
     
+    
     let contentView = UIView()
     let scrollView = UIScrollView()
     var bottomConstraint: NSLayoutConstraint?
+    var topLabelConstraint: NSLayoutConstraint?
     
-    init(output: RegScreenViewOutput) {
+    init(output: AuthRegScreenViewOutput) {
         self.output = output
         
         super.init(nibName: nil, bundle: nil)
@@ -160,8 +162,11 @@ final class RegScreenViewController: UIViewController {
             let keyboardHeight = keyboardRectangle.height
             bottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardHeight)
             bottomConstraint?.isActive = true
+//            
+//            topLabelConstraint?.isActive = false
+//            topLabelConstraint = textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20)
+//            topLabelConstraint?.isActive = true
             
-            scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height + 150)
             self.view.layoutIfNeeded()
         }
     }
@@ -172,7 +177,20 @@ final class RegScreenViewController: UIViewController {
         
         bottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomConstraint?.isActive = true
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 150)
+        
+//        let topConst:  CGFloat =  {
+//            var const: CGFloat
+//            if isAuthScreen {
+//                const = 150
+//            } else {
+//                const = 200
+//            }
+//            return const
+//        }()
+//        
+//        topLabelConstraint?.isActive = false
+//        topLabelConstraint = textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topConst)
+//        topLabelConstraint?.isActive = true
 
         self.view.layoutIfNeeded()
     }
@@ -183,9 +201,10 @@ final class RegScreenViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        scrollView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+//        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
         bottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomConstraint?.isActive = true
@@ -196,7 +215,7 @@ final class RegScreenViewController: UIViewController {
         contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
         contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
+//        contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
     }
     
     func setupRegViews(){
@@ -205,9 +224,12 @@ final class RegScreenViewController: UIViewController {
         textLabel.text = "Регистрация"
         contentView.addSubview(textLabel)
         textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.size.height / 4).isActive = true
-        textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
         
+        topLabelConstraint?.isActive = false
+        topLabelConstraint = textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.height / 2 - 200)
+        topLabelConstraint?.isActive = true
+        
+        textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
         
         contentView.addSubview(loginInput)
         loginInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -246,6 +268,7 @@ final class RegScreenViewController: UIViewController {
         regAuthButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 15).isActive = true
         regAuthButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
         regAuthButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        regAuthButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         self.view.layoutIfNeeded()
     }
@@ -256,7 +279,11 @@ final class RegScreenViewController: UIViewController {
         textLabel.text = "Авторизация"
         contentView.addSubview(textLabel)
         textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.size.height / 4).isActive = true
+        
+        topLabelConstraint?.isActive = false
+        topLabelConstraint = textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.height / 2 - 150)
+        topLabelConstraint?.isActive = true
+        
         textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
         
         
@@ -286,11 +313,12 @@ final class RegScreenViewController: UIViewController {
         regAuthButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 15).isActive = true
         regAuthButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
         regAuthButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        regAuthButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         self.view.layoutIfNeeded()
     }
     
 }
 
-extension RegScreenViewController: RegScreenViewInput {
+extension AuthRegScreenViewController: AuthRegScreenViewInput {
 }

@@ -1,10 +1,10 @@
 import UIKit
 
-final class RegScreenRouter {
+final class AuthRegScreenRouter {
     weak var sourceViewController: UIViewController?
 }
 
-extension RegScreenRouter: RegScreenRouterInput {
+extension AuthRegScreenRouter: AuthRegScreenRouterInput {
     
     func showProfile(with user: UserProfile) {
         var context = TabBarControllContext(moduleOutput: nil)
