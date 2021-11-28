@@ -24,10 +24,12 @@ final class ProfileScreenViewController: UIViewController {
         self.output = output
         self.user = user
 
+
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .fullScreen
         
         profileImageView.image = UIImage(named:"profile")
+
         profileImageView.layer.cornerRadius = 75
         profileImageView.clipsToBounds = true
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tabOnImage))
@@ -45,6 +47,8 @@ final class ProfileScreenViewController: UIViewController {
         settings.addGestureRecognizer(singleTap)
         
         tableContainerViewController.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        
+        tabBarItem = UITabBarItem(title: "", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
         
         view.backgroundColor = .white
     }

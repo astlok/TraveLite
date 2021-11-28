@@ -1,14 +1,10 @@
 import UIKit
 
-final class AuthScreenRouter {
+final class AuthRegScreenRouter {
     weak var sourceViewController: UIViewController?
 }
 
-extension AuthScreenRouter: AuthScreenRouterInput {
-    func showRegScreen() {
-        let container = AuthRegScreenContainer.assemble(with: .init())
-        sourceViewController?.present(container.viewController, animated: true, completion: nil)
-    }
+extension AuthRegScreenRouter: AuthRegScreenRouterInput {
     
     func showProfile(with user: UserProfile) {
         var context = TabBarControllContext(moduleOutput: nil)

@@ -20,9 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-//        TODO: set
-//        let container = AuthScreenContainer.assemble(with: .init())
-        let container = ProfileScreenContainer.assemble(with: .init())
+        let container = AuthRegScreenContainer.assemble(with: .init())
+
         let viewController = container.viewController
         
         window.rootViewController = viewController

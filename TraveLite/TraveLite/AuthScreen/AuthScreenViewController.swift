@@ -2,14 +2,13 @@ import UIKit
 
 final class AuthScreenViewController: UIViewController {
 	private let output: AuthScreenViewOutput
-
+    
     let label: UILabel = UILabel(frame: CGRect(x: 67, y: 0, width: 166.00, height: 30.00))
     let emailInput: InputView = InputView(frame: CGRect(x: 0, y: 42, width: 300.00, height: 55.00));
     let passwordInput: InputView = InputView(frame: CGRect(x: 0, y: 105, width: 300.00, height: 55.00));
     let submitButton: SubmitButtonView = SubmitButtonView(frame: CGRect(x: 0, y: 168, width: 300.00, height: 55.00));
     let regButton: UIButton = UIButton(frame: CGRect(x: 68, y: 236, width: 164.00, height: 17.00))
-//    let background = UIImage(named: "auth_background")
-    let containerView = UIView()
+    var containerView = UIView()
     var bottomConstraint: NSLayoutConstraint?
 
     init(output: AuthScreenViewOutput) {
@@ -49,8 +48,6 @@ final class AuthScreenViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
 
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        view.translatesAutoresizingMaskIntoConstraints = false
-
 
         containerView.addSubview(label)
         containerView.addSubview(emailInput)
@@ -64,7 +61,6 @@ final class AuthScreenViewController: UIViewController {
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         bottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomConstraint?.isActive = true
-        
 	}
 
 
