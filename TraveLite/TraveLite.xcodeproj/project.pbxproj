@@ -37,6 +37,7 @@
 		13FC472B274428B9003D59F5 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */; };
 		13FC472F274428FD003D59F5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472D274428FD003D59F5 /* InputView.swift */; };
 		13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472E274428FD003D59F5 /* SubmitButtonView.swift */; };
+		13FDF2702753C6F300813BD4 /* InnerDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */; };
 		2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */; };
 		2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */; };
 		2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */; };
@@ -78,6 +79,7 @@
 		13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		13FC472D274428FD003D59F5 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		13FC472E274428FD003D59F5 /* SubmitButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
+		13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerDBManager.swift; sourceTree = "<group>"; };
 		2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenPresenter.swift; sourceTree = "<group>"; };
 		2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRouter.swift; sourceTree = "<group>"; };
 		2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				13FC46FD274427F8003D59F5 /* Assets.xcassets */,
 				13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */,
 				13FC4702274427F8003D59F5 /* Info.plist */,
+				13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */,
 			);
 			path = TraveLite;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */,
 				13FC46F9274427F6003D59F5 /* ViewController.swift in Sources */,
 				13FC471827442887003D59F5 /* AuthRegScreenInteractor.swift in Sources */,
+				13FDF2702753C6F300813BD4 /* InnerDBManager.swift in Sources */,
 				13FC471727442887003D59F5 /* AuthRegScreenController.swift in Sources */,
 				2AA8AC63274439E3002B8358 /* ProfileScreenProtocols.swift in Sources */,
 				13FC471527442887003D59F5 /* AuthRegScreenProtocols.swift in Sources */,

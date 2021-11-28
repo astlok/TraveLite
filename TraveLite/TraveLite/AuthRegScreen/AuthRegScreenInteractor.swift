@@ -19,6 +19,7 @@ extension AuthRegScreenInteractor: AuthRegScreenInteractorInput {
                 switch result {
                 case .success(let response):
                     output?.didReg(with: response)
+                    InnerDBManager.authToken = response.authToken
                 case .failure(let error):
                     output?.didFail(with: error)
                 }
@@ -32,6 +33,7 @@ extension AuthRegScreenInteractor: AuthRegScreenInteractorInput {
                 switch result {
                 case .success(let response):
                     output?.didAuth(with: response)
+                    InnerDBManager.authToken = response.authToken
                 case .failure(let error):
                     output?.didFail(with: error)
                         
