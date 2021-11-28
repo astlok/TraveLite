@@ -16,6 +16,11 @@ protocol ApiManagerDescription {
 }
 
 final class ApiManager: ApiManagerDescription {
+    
+    static let shared: ApiManagerDescription = ApiManager()
+    
+    private init() {}
+    
     func changeProfile(with user: UserCreateRequest, token: String, completion: @escaping (Result<UserCreateRequest, Error>) -> Void) {
         guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile") else {
             completion(.failure(NetworkError.unexpected))
@@ -46,18 +51,15 @@ final class ApiManager: ApiManagerDescription {
         task.resume()
     }
     
-    static let shared: ApiManagerDescription = ApiManager()
-    
-    private init() {}
     
     func changeProfileImage(with userImage: UserImage, token: String, completion: @escaping (Result<UserImage, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profileImage") else {
+        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile/avatar") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = "PATCH"
         request.setValue("\(token)", forHTTPHeaderField: "X-Auth-token")
         
         let encoder = JSONEncoder()

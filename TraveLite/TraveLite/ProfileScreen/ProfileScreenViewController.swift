@@ -188,7 +188,7 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0, token: user?.authToken ?? "")
+            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0)
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImageView.image = originalImage
         }
@@ -211,7 +211,7 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
     
     func change(_ name: String, _ passwd: String) {
         let changes = UserCreateRequest(email: user?.email ?? "", nickname: name, password: passwd)
-        output.didChange(user: changes, token: user?.authToken ?? "")
+        output.didChange(user: changes)
     }
 }
 

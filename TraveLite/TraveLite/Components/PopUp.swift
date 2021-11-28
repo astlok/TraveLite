@@ -140,6 +140,8 @@ class PopUp: UIView {
         }
         
         callback(name, password)
+        
+        self.removeFromSuperview()
     }
     
     required init?(coder: NSCoder) {

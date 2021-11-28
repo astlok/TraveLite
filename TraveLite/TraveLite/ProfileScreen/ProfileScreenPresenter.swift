@@ -26,12 +26,12 @@ extension ProfileScreenPresenter: ProfileScreenModuleInput {
 }
 
 extension ProfileScreenPresenter: ProfileScreenViewOutput {
-    func didChange(user: UserCreateRequest, token: String) {
-        interactor.changeProfile(user: user, token: token)
+    func didChange(user: UserCreateRequest) {
+        interactor.changeProfile(user: user)
     }
     
-    func didSelectedProfileImage(image: UIImage, id: UInt64, token:String) {
-        interactor.changeProfileImage(image: image, id: id, token: token)
+    func didSelectedProfileImage(image: UIImage, id: UInt64) {
+        interactor.changeProfileImage(image: image, id: id)
     }
 }
 

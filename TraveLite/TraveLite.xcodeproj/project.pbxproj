@@ -34,6 +34,8 @@
 		13FC472F274428FD003D59F5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472D274428FD003D59F5 /* InputView.swift */; };
 		13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472E274428FD003D59F5 /* SubmitButtonView.swift */; };
 		13FDF2702753C6F300813BD4 /* InnerDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */; };
+		13FDF2742753ED3100813BD4 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FDF2722753ED3100813BD4 /* Montserrat-Light.ttf */; };
+		13FDF2752753ED3100813BD4 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FDF2732753ED3100813BD4 /* Montserrat-Regular.ttf */; };
 		2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */; };
 		2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */; };
 		2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */; };
@@ -42,8 +44,6 @@
 		2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5F274439E3002B8358 /* ProfileScreenContainer.swift */; };
 		36155964275259EF003805E2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 36155963275259EF003805E2 /* Kingfisher */; };
 		361559662753947E003805E2 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361559652753947E003805E2 /* PopUp.swift */; };
-		364ADA73274FE4E000C0C43E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364ADA72274FE4E000C0C43E /* Montserrat-Light.ttf */; };
-		364ADA75274FE55000C0C43E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364ADA74274FE54F00C0C43E /* Montserrat-Regular.ttf */; };
 		364ADA782750036600C0C43E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364ADA772750036600C0C43E /* AlertService.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +77,8 @@
 		13FC472D274428FD003D59F5 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		13FC472E274428FD003D59F5 /* SubmitButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
 		13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerDBManager.swift; sourceTree = "<group>"; };
+		13FDF2722753ED3100813BD4 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		13FDF2732753ED3100813BD4 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenPresenter.swift; sourceTree = "<group>"; };
 		2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRouter.swift; sourceTree = "<group>"; };
 		2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
@@ -84,8 +86,6 @@
 		2AA8AC5E274439E3002B8358 /* ProfileScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenInteractor.swift; sourceTree = "<group>"; };
 		2AA8AC5F274439E3002B8358 /* ProfileScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenContainer.swift; sourceTree = "<group>"; };
 		361559652753947E003805E2 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
-		364ADA72274FE4E000C0C43E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../../../Downloads/Montserrat/Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		364ADA74274FE54F00C0C43E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../../../Downloads/Montserrat (1)/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		364ADA772750036600C0C43E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,10 +133,10 @@
 		13FC46F3274427F6003D59F5 /* TraveLite */ = {
 			isa = PBXGroup;
 			children = (
+				13FDF2712753ED0400813BD4 /* Fonts */,
 				1369CE12274E9556009DE61A /* TabBarControll */,
 				2AA8AC59274439C7002B8358 /* ProfileScreen */,
 				13FC472C274428F0003D59F5 /* Components */,
-				13FC4727274428A8003D59F5 /* Fonts */,
 				13FC47082744283C003D59F5 /* Models */,
 				13FC471A27442890003D59F5 /* AuthScreen */,
 				13FC470D27442879003D59F5 /* AuthRegScreen */,
@@ -185,15 +185,6 @@
 			path = AuthScreen;
 			sourceTree = "<group>";
 		};
-		13FC4727274428A8003D59F5 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				364ADA74274FE54F00C0C43E /* Montserrat-Regular.ttf */,
-				364ADA72274FE4E000C0C43E /* Montserrat-Light.ttf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		13FC472C274428F0003D59F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +194,15 @@
 				13FC472E274428FD003D59F5 /* SubmitButtonView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		13FDF2712753ED0400813BD4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				13FDF2722753ED3100813BD4 /* Montserrat-Light.ttf */,
+				13FDF2732753ED3100813BD4 /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		2AA8AC59274439C7002B8358 /* ProfileScreen */ = {
@@ -282,8 +282,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				364ADA75274FE55000C0C43E /* Montserrat-Regular.ttf in Resources */,
-				364ADA73274FE4E000C0C43E /* Montserrat-Light.ttf in Resources */,
+				13FDF2752753ED3100813BD4 /* Montserrat-Regular.ttf in Resources */,
+				13FDF2742753ED3100813BD4 /* Montserrat-Light.ttf in Resources */,
 				13FC46FE274427F8003D59F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +314,7 @@
 				1369CE1A274E957B009DE61A /* TabBarControllRouter.swift in Sources */,
 				1369CE1D274E957B009DE61A /* TabBarControllInteractor.swift in Sources */,
 				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
-				13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */,
+				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
 				364ADA782750036600C0C43E /* AlertService.swift in Sources */,
 				13FC47252744289D003D59F5 /* AuthScreenContainer.swift in Sources */,
 				1369CE19274E957B009DE61A /* TabBarControllPresenter.swift in Sources */,

@@ -22,13 +22,13 @@ protocol ProfileScreenViewInput: AnyObject {
 }
 
 protocol ProfileScreenViewOutput: AnyObject {
-    func didSelectedProfileImage(image: UIImage, id: UInt64, token: String)
-    func didChange(user: UserCreateRequest, token: String)
+    func didSelectedProfileImage(image: UIImage, id: UInt64)
+    func didChange(user: UserCreateRequest)
 }
 
 protocol ProfileScreenInteractorInput: AnyObject {
-    func changeProfileImage(image: UIImage, id: UInt64, token: String)
-    func changeProfile(user: UserCreateRequest, token: String)
+    func changeProfileImage(image: UIImage, id: UInt64)
+    func changeProfile(user: UserCreateRequest)
 }
 
 protocol ProfileScreenInteractorOutput: AnyObject {
