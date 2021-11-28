@@ -7,39 +7,44 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ProfileScreenViewController: UIViewController {
-//    var userData: UserProfile?
 	private let output: ProfileScreenViewOutput
-    private let user: UserProfile?
+    private var user: UserProfile?
+    
     private let profileImageView  = UIImageView();
-    private let background = UIImage(named: "profile_background")
-    let containerView = UIView()
-    var bottomConstraint: NSLayoutConstraint?
-    let label: UILabel = UILabel(frame: CGRect(x: 67, y: 240, width: 166.00, height: 30.00))
-    let raiting: UILabel = UILabel(frame: CGRect(x: 70, y: 270, width: 166.00, height: 30.00))
+    private let background = UIImage(named: "back_profile")
+    private let tableContainerViewController = UIViewController()
+    private let label: UILabel = UILabel()
+    private let settings = UIImageView(image: UIImage(named: "settings_icon"))
+    let notFoundLabel = UILabel()
 
     init(output: ProfileScreenViewOutput, user: UserProfile?) {
         self.output = output
         self.user = user
-//        self.user = userData
-//        self.user = userData
 
         super.init(nibName: nil, bundle: nil)
-//        modalPresentationStyle = .fullScreen
-        profileImageView.image = UIImage(named:"bars")
+        modalPresentationStyle = .fullScreen
+        
+        profileImageView.image = UIImage(named:"profile")
         profileImageView.layer.cornerRadius = 75
         profileImageView.clipsToBounds = true
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(tabOnImage))
+        profileImageView.addGestureRecognizer(tapGR)
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.contentMode = .scaleToFill
         
         label.textAlignment = .center
-        label.text = user?.nickname
+        label.text = user?.nickname ?? "Маргарита Румынская"
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        label.font = UIFont(name: "Montserrat-Regular", size: 48)
+        label.font = UIFont(name: "Montserrat-Regular", size: 24)
         
-        raiting.textAlignment = .center
-        raiting.text = "Рейтинг 0.0"
-        raiting.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        raiting.font = UIFont(name: "Montserrat-Regular", size: 12)
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapSettingsButton))
+        settings.isUserInteractionEnabled = true
+        settings.addGestureRecognizer(singleTap)
+        
+        tableContainerViewController.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
         
         view.backgroundColor = .white
     }
@@ -51,27 +56,69 @@ final class ProfileScreenViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-
         assignBackground()
         
-
+        let segmentTextContent = [
+            NSLocalizedString("Пройдено", comment: ""),
+            NSLocalizedString("Загружено", comment: "")
+        ]
+        
+        let segmentedControl = UISegmentedControl(items: segmentTextContent)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.autoresizingMask = .flexibleWidth
+        segmentedControl.addTarget(self, action: #selector(changeTab), for: .valueChanged)
         
         self.view.addSubview(profileImageView)
-        view.addSubview(containerView)
+        self.view.addSubview(label)
+        self.view.addSubview(settings)
+        self.view.addSubview(segmentedControl)
+        self.view.addSubview(tableContainerViewController.view)
+        
+        settings.translatesAutoresizingMaskIntoConstraints = false
+        settings.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -22).isActive = true
+        settings.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        settings.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        settings.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 33).isActive = true
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         profileImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 64).isActive = true
-//        profileImageView.addSubview(label)
-        containerView.addSubview(label)
-        containerView.addSubview(raiting)
-        containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        bottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        bottomConstraint?.isActive = true
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        label.widthAnchor.constraint(equalToConstant: 330).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        label.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 12).isActive = true
+        
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        segmentedControl.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        segmentedControl.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        segmentedControl.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 30).isActive = true
+        
+        tableContainerViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        tableContainerViewController.view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        tableContainerViewController.view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        tableContainerViewController.view.heightAnchor.constraint(equalToConstant: 414).isActive = true
+        tableContainerViewController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor).isActive = true
+        tableContainerViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        notFoundLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        notFoundLabel.font = UIFont(name: "Montserrat-Light", size: 24)
+        notFoundLabel.numberOfLines = 0
+        notFoundLabel.lineBreakMode = .byWordWrapping
+        notFoundLabel.textAlignment = .center
+        notFoundLabel.text = "Пользователь не проходил маршруты"
+        
+        tableContainerViewController.view.addSubview(notFoundLabel)
+        
+        notFoundLabel.tag = 1
+        notFoundLabel.translatesAutoresizingMaskIntoConstraints = false
+        notFoundLabel.centerXAnchor.constraint(equalTo: tableContainerViewController.view.centerXAnchor).isActive = true
+        notFoundLabel.centerYAnchor.constraint(equalTo: tableContainerViewController.view.centerYAnchor).isActive = true
+        notFoundLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     func assignBackground() {
@@ -85,9 +132,94 @@ final class ProfileScreenViewController: UIViewController {
         self.view.sendSubviewToBack(imageView)
     }
     
+    @objc
+    func changeTab(_ sender: UISegmentedControl) {
+        let selected = sender.selectedSegmentIndex
+        
+//        if let remove = tableContainerViewController.view.viewWithTag(1) {
+//            remove.removeFromSuperview()
+//        }
+        
+        switch selected {
+        case 0:
+            notFoundLabel.text = "Пользователь не проходил маршруты"
+        case 1:
+            notFoundLabel.text = "Пользователь не загрузил ни один маршрут"
+        default:
+            print("Error profile VC")
+        }
+    }
+    
+    @objc
+    func tabOnImage(_ sender: UITapGestureRecognizer) {
+        if sender.state != .ended {
+            return
+        }
+        
+        showImagePickerControllerActionSheet()
+    }
 }
     
+extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func showImagePickerControllerActionSheet() {
+        let photoLibraryAction = UIAlertAction(title: "Выбрать из галлереи", style: .default) { (action) in
+                    self.showImagePickerController(sourceType: .photoLibrary)
+            }
+        let cameraAction = UIAlertAction(title: "Сделать фотографию", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .camera)
+            }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+                
+        AlertService.showAlert(style: .actionSheet, title: "Выбор изображения", message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0, token: user?.authToken ?? "")
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImageView.image = originalImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc
+    func tapSettingsButton(sender: UIImageView) {
+        let popup = PopUp(frame: CGRect(), name: user?.nickname ?? "Маргарита Румынская", changeCallback: change)
+        self.view.addSubview(popup)
+        
+        popup.translatesAutoresizingMaskIntoConstraints = false
+        popup.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        popup.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        popup.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        popup.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        popup.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        popup.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+    }
+    
+    func change(_ name: String, _ passwd: String) {
+        let changes = UserCreateRequest(email: user?.email ?? "", nickname: name, password: passwd)
+        output.didChange(user: changes, token: user?.authToken ?? "")
+    }
+}
 
 extension ProfileScreenViewController: ProfileScreenViewInput {
+    func displayChangesProfile(user: UserCreateRequest) {
+        self.user?.nickname = user.nickname
+        label.text = user.nickname
+    }
+    
+    func displayImage(image: String) {
+        let url = URL(string: image)
+        profileImageView.kf.setImage(with: url)
+    }
 }
 

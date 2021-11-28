@@ -10,9 +10,7 @@
 		13FC46F5274427F6003D59F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F4274427F6003D59F5 /* AppDelegate.swift */; };
 		13FC46F7274427F6003D59F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F6274427F6003D59F5 /* SceneDelegate.swift */; };
 		13FC46F9274427F6003D59F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F8274427F6003D59F5 /* ViewController.swift */; };
-		13FC46FC274427F6003D59F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FC46FA274427F6003D59F5 /* Main.storyboard */; };
 		13FC46FE274427F8003D59F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13FC46FD274427F8003D59F5 /* Assets.xcassets */; };
-		13FC4701274427F8003D59F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */; };
 		13FC470A27442859003D59F5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470927442859003D59F5 /* UserModel.swift */; };
 		13FC470C27442870003D59F5 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470B27442870003D59F5 /* ApiManager.swift */; };
 		13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470E27442887003D59F5 /* RegScreenPresenter.swift */; };
@@ -27,8 +25,6 @@
 		13FC47242744289D003D59F5 /* AuthScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471E2744289D003D59F5 /* AuthScreenInteractor.swift */; };
 		13FC47252744289D003D59F5 /* AuthScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471F2744289D003D59F5 /* AuthScreenContainer.swift */; };
 		13FC47262744289D003D59F5 /* AuthScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC47202744289D003D59F5 /* AuthScreenProtocols.swift */; };
-		13FC472A274428B9003D59F5 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FC4728274428B9003D59F5 /* Montserrat-Light.ttf */; };
-		13FC472B274428B9003D59F5 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */; };
 		13FC472F274428FD003D59F5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472D274428FD003D59F5 /* InputView.swift */; };
 		13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472E274428FD003D59F5 /* SubmitButtonView.swift */; };
 		2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */; };
@@ -37,6 +33,11 @@
 		2AA8AC63274439E3002B8358 /* ProfileScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5D274439E3002B8358 /* ProfileScreenProtocols.swift */; };
 		2AA8AC64274439E3002B8358 /* ProfileScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5E274439E3002B8358 /* ProfileScreenInteractor.swift */; };
 		2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5F274439E3002B8358 /* ProfileScreenContainer.swift */; };
+		36155964275259EF003805E2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 36155963275259EF003805E2 /* Kingfisher */; };
+		361559662753947E003805E2 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361559652753947E003805E2 /* PopUp.swift */; };
+		364ADA73274FE4E000C0C43E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364ADA72274FE4E000C0C43E /* Montserrat-Light.ttf */; };
+		364ADA75274FE55000C0C43E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364ADA74274FE54F00C0C43E /* Montserrat-Regular.ttf */; };
+		364ADA782750036600C0C43E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364ADA772750036600C0C43E /* AlertService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +45,7 @@
 		13FC46F4274427F6003D59F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13FC46F6274427F6003D59F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		13FC46F8274427F6003D59F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		13FC46FB274427F6003D59F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13FC46FD274427F8003D59F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		13FC4700274427F8003D59F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13FC4702274427F8003D59F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13FC470927442859003D59F5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		13FC470B27442870003D59F5 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -62,8 +61,6 @@
 		13FC471E2744289D003D59F5 /* AuthScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenInteractor.swift; sourceTree = "<group>"; };
 		13FC471F2744289D003D59F5 /* AuthScreenContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenContainer.swift; sourceTree = "<group>"; };
 		13FC47202744289D003D59F5 /* AuthScreenProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenProtocols.swift; sourceTree = "<group>"; };
-		13FC4728274428B9003D59F5 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		13FC472D274428FD003D59F5 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		13FC472E274428FD003D59F5 /* SubmitButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
 		2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenPresenter.swift; sourceTree = "<group>"; };
@@ -72,6 +69,10 @@
 		2AA8AC5D274439E3002B8358 /* ProfileScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenProtocols.swift; sourceTree = "<group>"; };
 		2AA8AC5E274439E3002B8358 /* ProfileScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenInteractor.swift; sourceTree = "<group>"; };
 		2AA8AC5F274439E3002B8358 /* ProfileScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenContainer.swift; sourceTree = "<group>"; };
+		361559652753947E003805E2 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		364ADA72274FE4E000C0C43E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../../../Downloads/Montserrat/Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		364ADA74274FE54F00C0C43E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../../../Downloads/Montserrat (1)/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		364ADA772750036600C0C43E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36155964275259EF003805E2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,9 +116,7 @@
 				13FC46F4274427F6003D59F5 /* AppDelegate.swift */,
 				13FC46F6274427F6003D59F5 /* SceneDelegate.swift */,
 				13FC46F8274427F6003D59F5 /* ViewController.swift */,
-				13FC46FA274427F6003D59F5 /* Main.storyboard */,
 				13FC46FD274427F8003D59F5 /* Assets.xcassets */,
-				13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */,
 				13FC4702274427F8003D59F5 /* Info.plist */,
 			);
 			path = TraveLite;
@@ -159,8 +159,8 @@
 		13FC4727274428A8003D59F5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				13FC4728274428B9003D59F5 /* Montserrat-Light.ttf */,
-				13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */,
+				364ADA74274FE54F00C0C43E /* Montserrat-Regular.ttf */,
+				364ADA72274FE4E000C0C43E /* Montserrat-Light.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -168,6 +168,8 @@
 		13FC472C274428F0003D59F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				361559652753947E003805E2 /* PopUp.swift */,
+				364ADA772750036600C0C43E /* AlertService.swift */,
 				13FC472D274428FD003D59F5 /* InputView.swift */,
 				13FC472E274428FD003D59F5 /* SubmitButtonView.swift */,
 			);
@@ -203,6 +205,9 @@
 			dependencies = (
 			);
 			name = TraveLite;
+			packageProductDependencies = (
+				36155963275259EF003805E2 /* Kingfisher */,
+			);
 			productName = TraveLite;
 			productReference = 13FC46F1274427F6003D59F5 /* TraveLite.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +236,9 @@
 				Base,
 			);
 			mainGroup = 13FC46E8274427F6003D59F5;
+			packageReferences = (
+				36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 13FC46F2274427F6003D59F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,11 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13FC472A274428B9003D59F5 /* Montserrat-Light.ttf in Resources */,
-				13FC4701274427F8003D59F5 /* LaunchScreen.storyboard in Resources */,
+				364ADA75274FE55000C0C43E /* Montserrat-Regular.ttf in Resources */,
+				364ADA73274FE4E000C0C43E /* Montserrat-Light.ttf in Resources */,
 				13FC46FE274427F8003D59F5 /* Assets.xcassets in Resources */,
-				13FC472B274428B9003D59F5 /* Montserrat-Regular.ttf in Resources */,
-				13FC46FC274427F6003D59F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */,
+				361559662753947E003805E2 /* PopUp.swift in Sources */,
 				13FC47212744289D003D59F5 /* AuthScreenRouter.swift in Sources */,
 				13FC47242744289D003D59F5 /* AuthScreenInteractor.swift in Sources */,
 				13FC471927442887003D59F5 /* RegScreenRouter.swift in Sources */,
@@ -274,6 +281,7 @@
 				13FC47222744289D003D59F5 /* AuthScreenViewController.swift in Sources */,
 				2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */,
 				13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */,
+				364ADA782750036600C0C43E /* AlertService.swift in Sources */,
 				13FC47252744289D003D59F5 /* AuthScreenContainer.swift in Sources */,
 				13FC46F5274427F6003D59F5 /* AppDelegate.swift in Sources */,
 				13FC471627442887003D59F5 /* RegScreenContainer.swift in Sources */,
@@ -289,25 +297,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		13FC46FA274427F6003D59F5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13FC46FB274427F6003D59F5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13FC4700274427F8003D59F5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		13FC4703274427F8003D59F5 /* Debug */ = {
@@ -437,7 +426,6 @@
 				INFOPLIST_FILE = TraveLite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -464,7 +452,6 @@
 				INFOPLIST_FILE = TraveLite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -502,6 +489,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36155963275259EF003805E2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 13FC46E9274427F6003D59F5 /* Project object */;
 }
