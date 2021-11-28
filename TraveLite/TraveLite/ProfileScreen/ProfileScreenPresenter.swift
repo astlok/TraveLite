@@ -25,15 +25,23 @@ final class ProfileScreenPresenter {
 extension ProfileScreenPresenter: ProfileScreenModuleInput {
 }
 
-extension ProfileScreenPresenter: ProfileScreenViewOutput {    
-    func didSelectedProfileImage(image: UIImage, id: UInt64) {
-        interactor.changeProfileImage(image: image, id: id)
+extension ProfileScreenPresenter: ProfileScreenViewOutput {
+    func didChange(user: UserCreateRequest, token: String) {
+        interactor.changeProfile(user: user, token: token)
+    }
+    
+    func didSelectedProfileImage(image: UIImage, id: UInt64, token:String) {
+        interactor.changeProfileImage(image: image, id: id, token: token)
     }
 }
 
 extension ProfileScreenPresenter: ProfileScreenInteractorOutput {
+    func didChangeProfile(with user: UserCreateRequest) {
+        view?.displayChangesProfile(user: user)
+    }
+    
     func didChangeImage(with user: UserImage) {
-        view?.displayImage(image: user.image)
+        view?.displayImage(image: user.img)
     }
     
     func didFail(with error: Error) {

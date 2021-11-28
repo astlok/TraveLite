@@ -20,12 +20,27 @@ final class ProfileScreenInteractor {
 }
 
 extension ProfileScreenInteractor: ProfileScreenInteractorInput {
-    func changeProfileImage(image: UIImage, id: UInt64) {
+    func changeProfile(user: UserCreateRequest, token: String) {
+        print("Изменение профиля", user.nickname, user.password)
+        apiManager.changeProfile(with: user, token: token, completion: { [weak output] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    output?.didChangeProfile(with: response)
+                case .failure(let error):
+                    output?.didFail(with: error)
+                }
+            }
+        })
+    }
+    
+    func changeProfileImage(image: UIImage, id: UInt64, token: String) {
+        print("Изменение изображения")
         let binaryImage = image.pngData()! as NSData
         let base64 = binaryImage.base64EncodedData(options: .lineLength64Characters)
         let str = String(decoding: base64, as: UTF8.self)
-        let userImage = UserImage(image: str, id: id)
-        apiManager.changeProfileImage(with: userImage, completion: { [weak output] result in
+        let userImage = UserImage(img: str, id: id)
+        apiManager.changeProfileImage(with: userImage, token: token, completion: { [weak output] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):

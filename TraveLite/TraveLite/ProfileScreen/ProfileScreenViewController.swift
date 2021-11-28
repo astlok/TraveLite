@@ -11,12 +11,13 @@ import Kingfisher
 
 final class ProfileScreenViewController: UIViewController {
 	private let output: ProfileScreenViewOutput
-    private let user: UserProfile?
+    private var user: UserProfile?
     
     private let profileImageView  = UIImageView();
     private let background = UIImage(named: "back_profile")
     private let tableContainerViewController = UIViewController()
     private let label: UILabel = UILabel()
+    private let settings = UIImageView(image: UIImage(named: "settings_icon"))
     let notFoundLabel = UILabel()
 
     init(output: ProfileScreenViewOutput, user: UserProfile?) {
@@ -38,6 +39,10 @@ final class ProfileScreenViewController: UIViewController {
         label.text = user?.nickname ?? "Маргарита Румынская"
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         label.font = UIFont(name: "Montserrat-Regular", size: 24)
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapSettingsButton))
+        settings.isUserInteractionEnabled = true
+        settings.addGestureRecognizer(singleTap)
         
         tableContainerViewController.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
         
@@ -65,8 +70,15 @@ final class ProfileScreenViewController: UIViewController {
         
         self.view.addSubview(profileImageView)
         self.view.addSubview(label)
+        self.view.addSubview(settings)
         self.view.addSubview(segmentedControl)
         self.view.addSubview(tableContainerViewController.view)
+        
+        settings.translatesAutoresizingMaskIntoConstraints = false
+        settings.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -22).isActive = true
+        settings.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        settings.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        settings.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 33).isActive = true
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -172,19 +184,42 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0)
+            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0, token: user?.authToken ?? "")
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImageView.image = originalImage
         }
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc
+    func tapSettingsButton(sender: UIImageView) {
+        let popup = PopUp(frame: CGRect(), name: user?.nickname ?? "Маргарита Румынская", changeCallback: change)
+        self.view.addSubview(popup)
+        
+        popup.translatesAutoresizingMaskIntoConstraints = false
+        popup.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        popup.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        popup.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        popup.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        popup.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        popup.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+    }
+    
+    func change(_ name: String, _ passwd: String) {
+        let changes = UserCreateRequest(email: user?.email ?? "", nickname: name, password: passwd)
+        output.didChange(user: changes, token: user?.authToken ?? "")
+    }
 }
 
 extension ProfileScreenViewController: ProfileScreenViewInput {
+    func displayChangesProfile(user: UserCreateRequest) {
+        self.user?.nickname = user.nickname
+        label.text = user.nickname
+    }
+    
     func displayImage(image: String) {
         let url = URL(string: image)
         profileImageView.kf.setImage(with: url)
     }
-    
 }
 

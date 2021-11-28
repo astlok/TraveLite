@@ -23,7 +23,7 @@ struct UserCreateResponse: Decodable {
 }
 
 struct UserImage: Encodable, Decodable {
-    var image: String
+    var img: String
     var id: UInt64
 }
 
