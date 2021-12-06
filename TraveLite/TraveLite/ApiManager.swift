@@ -13,6 +13,10 @@ protocol ApiManagerDescription {
     func changeProfileImage(with userImage: UserImage, token: String, completion: @escaping (Result<UserImage, Error>) -> Void)
     
     func changeProfile(with userImage: UserCreateRequest, token: String, completion: @escaping (Result<UserCreateRequest, Error>) -> Void)
+    
+    func checkAuth(with user: UserCheckAuthRequest, completion: @escaping (Result<UserProfile, Error>) -> Void)
+    
+    func loadTreks(token: String, completion: @escaping (Result<Treks, Error>) -> Void)
 }
 
 final class ApiManager: ApiManagerDescription {
@@ -49,6 +53,44 @@ final class ApiManager: ApiManagerDescription {
             completion(.success(user))
         }
         task.resume()
+    }
+    
+    func loadTreks(token: String, completion: @escaping (Result<Treks, Error>) -> Void) {
+        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/trek") else {
+            completion(.failure(NetworkError.unexpected))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("\(token)", forHTTPHeaderField: "X-Auth-token")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NetworkError.unexpected))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                print(try? JSONSerialization.jsonObject(with: data, options: []))
+                let result = try decoder.decode([Trek].self, from: data)
+                
+                let treks: Treks = .init(treks: result)
+                
+                completion(.success(treks))
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+
     }
     
     
@@ -89,6 +131,46 @@ final class ApiManager: ApiManagerDescription {
                 let result = try decoder.decode(UserImage.self, from: data)
                 userProfile.img = result.img
                 userProfile.id = result.id
+                completion(.success(userProfile))
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
+    
+    func checkAuth(with user: UserCheckAuthRequest, completion: @escaping (Result<UserProfile, Error>) -> Void) {
+        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile/\(user.id)") else {
+            completion(.failure(NetworkError.unexpected))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("\(user.authToken)", forHTTPHeaderField: "X-Auth-token")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NetworkError.unexpected))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                var userProfile: UserProfile = UserProfile(id: 0, email: "", nickname: "", img: "", authToken: "", treksNumber: 0)
+                print(try? JSONSerialization.jsonObject(with: data, options: []))
+                let result = try decoder.decode(UserProfile.self, from: data)
+                userProfile.authToken = result.authToken
+                userProfile.id = result.id
+                userProfile.email = result.email
+                userProfile.img = result.img
+                userProfile.treksNumber = result.treksNumber
                 completion(.success(userProfile))
             } catch let error {
                 completion(.failure(error))

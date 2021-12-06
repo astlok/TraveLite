@@ -30,7 +30,7 @@ extension ProfileScreenPresenter: ProfileScreenViewOutput {
         interactor.changeProfile(user: user)
     }
     
-    func didSelectedProfileImage(image: UIImage, id: UInt64) {
+    func didSelectedProfileImage(image: UIImage, id: Int) {
         interactor.changeProfileImage(image: image, id: id)
     }
 }

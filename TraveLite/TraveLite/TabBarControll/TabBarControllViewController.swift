@@ -13,10 +13,11 @@ final class TabBarControllViewController: UITabBarController, UITabBarController
     
     init(output: TabBarControllViewOutput) {
         self.output = output
-        
+
         super.init(nibName: nil, bundle: nil)
         
         modalPresentationStyle = .fullScreen
+        
     }
     
 

@@ -11,6 +11,7 @@ final class InnerDBManager {
     
     private enum DBKeys: String {
         case token
+        case id
     }
     
     
@@ -21,6 +22,16 @@ final class InnerDBManager {
         
         set {
             UserDefaults.standard.set(newValue ?? "", forKey: DBKeys.token.rawValue)
+        }
+    }
+    
+    static var userID: Int? {
+        get {
+            return UserDefaults.standard.integer(forKey: DBKeys.id.rawValue)
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue ?? "", forKey: DBKeys.id.rawValue)
         }
     }
 }
