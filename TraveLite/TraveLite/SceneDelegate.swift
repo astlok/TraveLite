@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let container = AuthRegScreenContainer.assemble(with: .init())
+//        let container = AuthRegScreenContainer.assemble(with: .init())
+        let trek = Trek(id: 1, name: "Карловы вары", difficult: 2, days: 2, things: [], description: "Карловы Вары (Карлсбад) – это курортный город на западе Богемии в Чешской Республике.Он пользуется популярностью у туристов с XIX века благодаря своим термальным источникам.В курортной зоне по берегам реки располагаются несколько колоннад для прогулок. В Гейзерной колоннаде находится знаменитый термальный источник \"Вридло\" и гейзер высотой 12 метров.", file: "234", region: "123", rating: 2, userID: 4)
+        let container = OneRouteContainer.assemble(with: .init(trek: trek))
 
         let viewController = container.viewController
         

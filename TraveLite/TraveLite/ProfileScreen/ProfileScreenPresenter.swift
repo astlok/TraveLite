@@ -26,6 +26,10 @@ extension ProfileScreenPresenter: ProfileScreenModuleInput {
 }
 
 extension ProfileScreenPresenter: ProfileScreenViewOutput {
+    func didExit() {
+        interactor.exit()
+    }
+    
     func didChange(user: UserCreateRequest) {
         interactor.changeProfile(user: user)
     }
@@ -36,6 +40,10 @@ extension ProfileScreenPresenter: ProfileScreenViewOutput {
 }
 
 extension ProfileScreenPresenter: ProfileScreenInteractorOutput {
+    func didExitFromProfile() {
+        router.showAuth()
+    }
+    
     func didChangeProfile(with user: UserCreateRequest) {
         view?.displayChangesProfile(user: user)
     }

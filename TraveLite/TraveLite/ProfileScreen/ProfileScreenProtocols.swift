@@ -24,19 +24,23 @@ protocol ProfileScreenViewInput: AnyObject {
 protocol ProfileScreenViewOutput: AnyObject {
     func didSelectedProfileImage(image: UIImage, id: UInt64)
     func didChange(user: UserCreateRequest)
+    func didExit()
 }
 
 protocol ProfileScreenInteractorInput: AnyObject {
     func changeProfileImage(image: UIImage, id: UInt64)
     func changeProfile(user: UserCreateRequest)
+    func exit()
 }
 
 protocol ProfileScreenInteractorOutput: AnyObject {
     func didChangeImage(with user: UserImage)
     func didChangeProfile(with user: UserCreateRequest)
+    func didExitFromProfile()
     func didFail(with error: Error)
 }
 
 protocol ProfileScreenRouterInput: AnyObject {
+    func showAuth()
     func showError(with text: String)
 }
