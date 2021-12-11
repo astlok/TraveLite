@@ -18,7 +18,11 @@ final class ProfileScreenViewController: UIViewController {
     private let tableContainerViewController = UIViewController()
     private let label: UILabel = UILabel()
     private let settings = UIImageView(image: UIImage(named: "settings_icon"))
+
     private let exit = UIImageView(image: UIImage(named: "exit"))
+    
+    private let tableView = UITableView()
+    
     let notFoundLabel = UILabel()
 
     init(output: ProfileScreenViewOutput, user: UserProfile?) {
@@ -69,7 +73,7 @@ final class ProfileScreenViewController: UIViewController {
         assignBackground()
         
         let segmentTextContent = [
-            NSLocalizedString("Пройдено", comment: ""),
+//            NSLocalizedString("Пройдено", comment: ""),
             NSLocalizedString("Загружено", comment: "")
         ]
         
@@ -118,9 +122,9 @@ final class ProfileScreenViewController: UIViewController {
         tableContainerViewController.view.translatesAutoresizingMaskIntoConstraints = false
         tableContainerViewController.view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         tableContainerViewController.view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        tableContainerViewController.view.heightAnchor.constraint(equalToConstant: 414).isActive = true
+//        tableContainerViewController.view.heightAnchor.constraint(equalToConstant: 370).isActive = true
         tableContainerViewController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor).isActive = true
-        tableContainerViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        tableContainerViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         notFoundLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         notFoundLabel.font = UIFont(name: "Montserrat-Light", size: 24)
@@ -136,10 +140,31 @@ final class ProfileScreenViewController: UIViewController {
         notFoundLabel.centerXAnchor.constraint(equalTo: tableContainerViewController.view.centerXAnchor).isActive = true
         notFoundLabel.centerYAnchor.constraint(equalTo: tableContainerViewController.view.centerYAnchor).isActive = true
         notFoundLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        tableContainerViewController.view.addSubview(notFoundLabel)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TreksScreenViewCell.self, forCellReuseIdentifier: "TreksScreenViewCell")
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        tableContainerViewController.view.addSubview(tableView)
+        
+        tableView.centerXAnchor.constraint(equalTo: tableContainerViewController.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: tableContainerViewController.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: tableContainerViewController.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: tableContainerViewController.view.safeAreaLayoutGuide.widthAnchor).isActive = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        output.didLoadView()
     }
     
     func assignBackground() {
-        var imageView : UIImageView!
+        var imageView = UIImageView()
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
@@ -147,8 +172,14 @@ final class ProfileScreenViewController: UIViewController {
         imageView.center = view.center
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
     }
-    
+
     @objc
     func changeTab(_ sender: UISegmentedControl) {
         let selected = sender.selectedSegmentIndex
@@ -231,7 +262,13 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
         let changes = UserCreateRequest(email: user?.email ?? "", nickname: name, password: passwd)
         output.didChange(user: changes)
     }
+    
+    @objc
+    internal func didPullToRefresh() {
+        output.didPullToRefresh()
+    }
 }
+
 
 extension ProfileScreenViewController: ProfileScreenViewInput {
     func displayChangesProfile(user: UserCreateRequest) {
@@ -243,5 +280,34 @@ extension ProfileScreenViewController: ProfileScreenViewInput {
         let url = URL(string: image)
         profileImageView.kf.setImage(with: url)
     }
+    
+    func reloadData() {
+        tableView.refreshControl?.endRefreshing()
+        tableView.reloadData()
+    }
+}
+
+
+extension ProfileScreenViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TreksScreenViewCell") as? TreksScreenViewCell
+        
+        cell?.configure(with: output.item(at: indexPath.row))
+        
+        return cell ?? .init()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return output.itemsCount
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectItem(at: indexPath.row)
+    }
+    
 }
 

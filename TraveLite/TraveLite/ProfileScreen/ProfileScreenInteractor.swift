@@ -20,6 +20,7 @@ final class ProfileScreenInteractor {
 }
 
 extension ProfileScreenInteractor: ProfileScreenInteractorInput {
+
     func exit() {
         print("Выход из профиля")
         
@@ -32,6 +33,19 @@ extension ProfileScreenInteractor: ProfileScreenInteractorInput {
                     print("Успешный выход")
                     InnerDBManager.authToken = ""
                     output?.didExitFromProfile()
+                case .failure(let error):
+                    output?.didFail(with: error)
+                }
+            }
+        })
+    }
+
+    func loadTreks() {
+        apiManager.loadTreks(token: InnerDBManager.authToken ?? "", completion: { [weak output] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    output?.treaksLoad(with: response)
                 case .failure(let error):
                     output?.didFail(with: error)
                 }
@@ -56,7 +70,7 @@ extension ProfileScreenInteractor: ProfileScreenInteractorInput {
         })
     }
     
-    func changeProfileImage(image: UIImage, id: UInt64) {
+    func changeProfileImage(image: UIImage, id: Int) {
         print("Изменение изображения")
         let binaryImage = image.pngData()! as NSData
         let base64 = binaryImage.base64EncodedData(options: .lineLength64Characters)

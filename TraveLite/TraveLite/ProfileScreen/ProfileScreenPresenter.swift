@@ -15,6 +15,8 @@ final class ProfileScreenPresenter {
 
 	private let router: ProfileScreenRouterInput
 	private let interactor: ProfileScreenInteractorInput
+    
+    private var treksModels: [TrekCellModell] = []
 
     init(router: ProfileScreenRouterInput, interactor: ProfileScreenInteractorInput) {
         self.router = router
@@ -29,19 +31,50 @@ extension ProfileScreenPresenter: ProfileScreenViewOutput {
     func didExit() {
         interactor.exit()
     }
+    func didSelectItem(at index: Int) {
+        router.showTrek(with: treksModels[index])
+    }
     
     func didChange(user: UserCreateRequest) {
         interactor.changeProfile(user: user)
     }
     
-    func didSelectedProfileImage(image: UIImage, id: UInt64) {
+    func didSelectedProfileImage(image: UIImage, id: Int) {
         interactor.changeProfileImage(image: image, id: id)
+    }
+    
+    func didPullToRefresh() {
+        interactor.loadTreks()
+    }
+    
+    func didLoadView() {
+        interactor.loadTreks()
+    }
+    
+    var itemsCount: Int {
+        return treksModels.count
+    }
+    
+    func item(at index: Int) -> TrekCellModell {
+        return treksModels[index]
     }
 }
 
 extension ProfileScreenPresenter: ProfileScreenInteractorOutput {
     func didExitFromProfile() {
         router.showAuth()
+    }
+  
+    func treaksLoad(with treks: Treks) {
+        for trek in treks.treks {
+            if treksModels.isEmpty && trek.userID == InnerDBManager.userID {
+                treksModels.append(TrekCellModell.init(with: trek))
+            }
+            if !treksModels.contains(where: {$0.id == trek.id}) && trek.userID == InnerDBManager.userID {
+                treksModels.append(TrekCellModell.init(with: trek))
+            }
+        }
+        view?.reloadData()
     }
     
     func didChangeProfile(with user: UserCreateRequest) {
