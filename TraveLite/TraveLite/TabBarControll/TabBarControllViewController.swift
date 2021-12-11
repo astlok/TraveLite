@@ -17,7 +17,6 @@ final class TabBarControllViewController: UITabBarController, UITabBarController
         super.init(nibName: nil, bundle: nil)
         
         modalPresentationStyle = .fullScreen
-        
     }
     
 

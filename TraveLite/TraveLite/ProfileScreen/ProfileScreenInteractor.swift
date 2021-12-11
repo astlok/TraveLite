@@ -20,6 +20,20 @@ final class ProfileScreenInteractor {
 }
 
 extension ProfileScreenInteractor: ProfileScreenInteractorInput {
+    func loadTreks() {
+        apiManager.loadTreks(token: InnerDBManager.authToken ?? "", completion: { [weak output] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    output?.treaksLoad(with: response)
+                    
+                case .failure(let error):
+                    output?.didFail(with: error)
+                }
+            }
+        })
+    }
+    
     func changeProfile(user: UserCreateRequest) {
         print("Изменение профиля", user.nickname, user.password)
         

@@ -27,6 +27,8 @@ protocol TreksScreenViewOutput: AnyObject {
     func didLoadView()
     
     func didPullToRefresh()
+    
+    func didSelectItem(at index: Int)
 }
 
 protocol TreksScreenInteractorInput: AnyObject {
@@ -41,4 +43,6 @@ protocol TreksScreenInteractorOutput: AnyObject {
 
 protocol TreksScreenRouterInput: AnyObject {
     func showError(with error: String)
+    
+    func showTrek(with trek: TrekCellModell)
 }

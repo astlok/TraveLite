@@ -18,25 +18,48 @@ protocol ProfileScreenModuleOutput: AnyObject {
 
 protocol ProfileScreenViewInput: AnyObject {
     func displayImage(image: String)
+    
     func displayChangesProfile(user: UserCreateRequest)
+    
+    func reloadData()
 }
 
 protocol ProfileScreenViewOutput: AnyObject {
     func didSelectedProfileImage(image: UIImage, id: Int)
+    
     func didChange(user: UserCreateRequest)
+    
+    var itemsCount: Int { get }
+    
+    func item(at index: Int) -> TrekCellModell
+    
+    func didLoadView()
+    
+    func didPullToRefresh()
+    
+    func didSelectItem(at index: Int)
 }
 
 protocol ProfileScreenInteractorInput: AnyObject {
     func changeProfileImage(image: UIImage, id: Int)
+    
     func changeProfile(user: UserCreateRequest)
+    
+    func loadTreks()
 }
 
 protocol ProfileScreenInteractorOutput: AnyObject {
     func didChangeImage(with user: UserImage)
+    
     func didChangeProfile(with user: UserCreateRequest)
+    
     func didFail(with error: Error)
+    
+    func treaksLoad(with treks: Treks)
 }
 
 protocol ProfileScreenRouterInput: AnyObject {
     func showError(with text: String)
+    
+    func showTrek(with trek: TrekCellModell)
 }

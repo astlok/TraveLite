@@ -166,12 +166,7 @@ final class ApiManager: ApiManagerDescription {
                 var userProfile: UserProfile = UserProfile(id: 0, email: "", nickname: "", img: "", authToken: "", treksNumber: 0)
                 print(try? JSONSerialization.jsonObject(with: data, options: []))
                 let result = try decoder.decode(UserProfile.self, from: data)
-                userProfile.authToken = result.authToken
-                userProfile.id = result.id
-                userProfile.email = result.email
-                userProfile.img = result.img
-                userProfile.treksNumber = result.treksNumber
-                completion(.success(userProfile))
+                completion(.success(result))
             } catch let error {
                 completion(.failure(error))
             }
