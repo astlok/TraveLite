@@ -18,6 +18,8 @@ final class ProfileScreenViewController: UIViewController {
     private let tableContainerViewController = UIViewController()
     private let label: UILabel = UILabel()
     private let settings = UIImageView(image: UIImage(named: "settings_icon"))
+
+    private let exit = UIImageView(image: UIImage(named: "exit"))
     
     private let tableView = UITableView()
     
@@ -41,7 +43,7 @@ final class ProfileScreenViewController: UIViewController {
         profileImageView.contentMode = .scaleToFill
         
         label.textAlignment = .center
-        label.text = user?.nickname ?? "Маргарита Румынская"
+        label.text = user?.nickname ?? "Имя Фамилия"
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         label.font = UIFont(name: "Montserrat-Regular", size: 24)
         
@@ -49,9 +51,14 @@ final class ProfileScreenViewController: UIViewController {
         settings.isUserInteractionEnabled = true
         settings.addGestureRecognizer(singleTap)
         
+        let exitTap = UITapGestureRecognizer(target: self, action: #selector(tapExitButton))
+        exit.isUserInteractionEnabled = true
+        exit.addGestureRecognizer(exitTap)
+        
         tableContainerViewController.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
         
-        tabBarItem = UITabBarItem(title: "", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
+        let tabImageProfile = UIImage(named: "profile_icon")
+        tabBarItem = UITabBarItem(title: "", image: tabImageProfile, selectedImage: tabImageProfile)
         
         view.backgroundColor = .white
     }
@@ -78,6 +85,7 @@ final class ProfileScreenViewController: UIViewController {
         self.view.addSubview(profileImageView)
         self.view.addSubview(label)
         self.view.addSubview(settings)
+        self.view.addSubview(exit)
         self.view.addSubview(segmentedControl)
         self.view.addSubview(tableContainerViewController.view)
         
@@ -86,6 +94,12 @@ final class ProfileScreenViewController: UIViewController {
         settings.widthAnchor.constraint(equalToConstant: 25).isActive = true
         settings.heightAnchor.constraint(equalToConstant: 25).isActive = true
         settings.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 33).isActive = true
+        
+        exit.translatesAutoresizingMaskIntoConstraints = false
+        exit.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 22).isActive = true
+        exit.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        exit.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        exit.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 33).isActive = true
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -227,7 +241,7 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
     
     @objc
     func tapSettingsButton(sender: UIImageView) {
-        let popup = PopUp(frame: CGRect(), name: user?.nickname ?? "Маргарита Румынская", changeCallback: change)
+        let popup = PopUp(frame: CGRect(), name: user?.nickname ?? "Имя Фамилия", changeCallback: change)
         self.view.addSubview(popup)
         
         popup.translatesAutoresizingMaskIntoConstraints = false
@@ -237,6 +251,11 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
         popup.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         popup.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         popup.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+    }
+    
+    @objc
+    func tapExitButton(sender: UIImageView) {
+        output.didExit()
     }
     
     func change(_ name: String, _ passwd: String) {

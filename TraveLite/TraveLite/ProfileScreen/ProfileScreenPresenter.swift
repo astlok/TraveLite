@@ -28,6 +28,9 @@ extension ProfileScreenPresenter: ProfileScreenModuleInput {
 }
 
 extension ProfileScreenPresenter: ProfileScreenViewOutput {
+    func didExit() {
+        interactor.exit()
+    }
     func didSelectItem(at index: Int) {
         router.showTrek(with: treksModels[index])
     }
@@ -58,6 +61,10 @@ extension ProfileScreenPresenter: ProfileScreenViewOutput {
 }
 
 extension ProfileScreenPresenter: ProfileScreenInteractorOutput {
+    func didExitFromProfile() {
+        router.showAuth()
+    }
+  
     func treaksLoad(with treks: Treks) {
         for trek in treks.treks {
             if treksModels.isEmpty && trek.userID == InnerDBManager.userID {

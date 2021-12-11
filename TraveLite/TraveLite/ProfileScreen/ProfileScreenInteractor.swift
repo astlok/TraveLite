@@ -20,13 +20,32 @@ final class ProfileScreenInteractor {
 }
 
 extension ProfileScreenInteractor: ProfileScreenInteractorInput {
+
+    func exit() {
+        print("Выход из профиля")
+        
+        let token = InnerDBManager.authToken ?? ""
+        
+        apiManager.exit(token: token, completion: { [weak output] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    print("Успешный выход")
+                    InnerDBManager.authToken = ""
+                    output?.didExitFromProfile()
+                case .failure(let error):
+                    output?.didFail(with: error)
+                }
+            }
+        })
+    }
+
     func loadTreks() {
         apiManager.loadTreks(token: InnerDBManager.authToken ?? "", completion: { [weak output] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
                     output?.treaksLoad(with: response)
-                    
                 case .failure(let error):
                     output?.didFail(with: error)
                 }

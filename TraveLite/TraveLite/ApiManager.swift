@@ -14,12 +14,36 @@ protocol ApiManagerDescription {
     
     func changeProfile(with userImage: UserCreateRequest, token: String, completion: @escaping (Result<UserCreateRequest, Error>) -> Void)
     
+    func exit(token: String, completion: @escaping (Result<Bool, Error>) -> Void)
+  
     func checkAuth(with user: UserCheckAuthRequest, completion: @escaping (Result<UserProfile, Error>) -> Void)
     
     func loadTreks(token: String, completion: @escaping (Result<Treks, Error>) -> Void)
+
 }
 
 final class ApiManager: ApiManagerDescription {
+    func exit(token: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/logout") else {
+            completion(.failure(NetworkError.unexpected))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("\(token)", forHTTPHeaderField: "X-Auth-token")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            completion(.success(true))
+        }
+        task.resume()
+    }
+    
     
     static let shared: ApiManagerDescription = ApiManager()
     

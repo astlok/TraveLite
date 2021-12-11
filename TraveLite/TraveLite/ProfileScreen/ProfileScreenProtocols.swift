@@ -28,6 +28,8 @@ protocol ProfileScreenViewOutput: AnyObject {
     func didSelectedProfileImage(image: UIImage, id: Int)
     
     func didChange(user: UserCreateRequest)
+  
+    func didExit()
     
     var itemsCount: Int { get }
     
@@ -44,6 +46,8 @@ protocol ProfileScreenInteractorInput: AnyObject {
     func changeProfileImage(image: UIImage, id: Int)
     
     func changeProfile(user: UserCreateRequest)
+  
+    func exit()
     
     func loadTreks()
 }
@@ -52,13 +56,16 @@ protocol ProfileScreenInteractorOutput: AnyObject {
     func didChangeImage(with user: UserImage)
     
     func didChangeProfile(with user: UserCreateRequest)
-    
+
+    func didExitFromProfile()
+
     func didFail(with error: Error)
     
     func treaksLoad(with treks: Treks)
 }
 
 protocol ProfileScreenRouterInput: AnyObject {
+    func showAuth()
     func showError(with text: String)
     
     func showTrek(with trek: TrekCellModell)
