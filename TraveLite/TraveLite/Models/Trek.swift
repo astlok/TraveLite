@@ -12,11 +12,12 @@ struct Trek: Decodable {
     var name: String
     var difficult: Int
     var days: Int
-    var things: [String]
+    var things: [String]?
     var description: String
     var file: String
     var region: String
     var rating: Int
+    var userID: Int
 }
 
 struct Treks {
@@ -25,6 +26,7 @@ struct Treks {
 
 struct TrekCellModell {
     var id: Int
+    
     var name: String
     
     var difficult: Int
@@ -35,6 +37,8 @@ struct TrekCellModell {
     
     var rating: Int
     
+    var description: String
+    
     init(with trek: Trek) {
         self.id = trek.id
         self.name = trek.name
@@ -42,5 +46,6 @@ struct TrekCellModell {
         self.days = trek.days
         self.region = trek.region
         self.rating = trek.rating
+        self.description = trek.description
     }
 }

@@ -78,7 +78,9 @@ extension TreksScreenViewController: UITableViewDelegate, UITableViewDataSource 
         return 140
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectItem(at: indexPath.row)
+    }
 }
 
 extension TreksScreenViewController: TreksScreenViewInput {

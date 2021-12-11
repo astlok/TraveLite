@@ -13,6 +13,14 @@ final class TreksScreenRouter {
 }
 
 extension TreksScreenRouter: TreksScreenRouterInput {
+    func showTrek(with trek: TrekCellModell) {
+        var context = OneRouteScreenContext(moduleOutput: nil)
+        context.trek = trek
+        let container = OneRouteScreenContainer.assemble(with: context)
+        
+        sourceViewController?.present(container.viewController, animated: true, completion: nil)
+    }
+    
     func showError(with text: String) {
         let alertController = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
         

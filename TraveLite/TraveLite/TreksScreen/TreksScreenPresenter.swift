@@ -49,6 +49,10 @@ extension TreksScreenPresenter: TreksScreenViewOutput {
 }
 
 extension TreksScreenPresenter: TreksScreenInteractorOutput {
+    func didSelectItem(at index: Int) {
+        router.showTrek(with: treksModels[index])
+    }
+    
     func didFail(with error: Error) {
         router.showError(with: error.localizedDescription)
     }
