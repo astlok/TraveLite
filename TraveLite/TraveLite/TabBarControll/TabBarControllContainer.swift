@@ -23,12 +23,10 @@ final class TabBarControllContainer {
         profileContext.user = context.user
         let profileContainer = ProfileScreenContainer.assemble(with: profileContext)
         
-        //TODO: Заглушки для создания заказа и списка всех заказов
-        var profileContext2 = ProfileScreenContext(user: nil, moduleOutput: nil)
-        profileContext2.user = context.user
-        let profileContainer2 = ProfileScreenContainer.assemble(with: profileContext2)
+        let treksScreenContainer = TreksScreenContainer.assemble(with: .init())
        
         
+        //TODO: Заглушки для создания заказа и списка всех заказов
         var profileContext3 = ProfileScreenContext(user: nil, moduleOutput: nil)
         profileContext3.user = context.user
         let profileContainer3 = ProfileScreenContainer.assemble(with: profileContext3)
@@ -36,13 +34,13 @@ final class TabBarControllContainer {
         //TODO: Вот по сюда заглушка
         
         let viewController = TabBarControllViewController(output: presenter)
-        
-        viewController.setViewControllers( [ profileContainer2.viewController, profileContainer3.viewController, profileContainer.viewController], animated: true)
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        viewController.setViewControllers( [ treksScreenContainer.viewController, profileContainer3.viewController, profileContainer.viewController], animated: true)
 
         return TabBarControllContainer(view: viewController, input: presenter, router: router)
 	}

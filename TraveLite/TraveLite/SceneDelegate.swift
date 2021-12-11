@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,13 +21,55 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let container = AuthRegScreenContainer.assemble(with: .init())
+        checkAuth(show: { user, isAuth in
+            if !isAuth {
+                let container = AuthRegScreenContainer.assemble(with: .init())
 
-        let viewController = container.viewController
-        
-        window.rootViewController = viewController
-        self.window = window
-        window.makeKeyAndVisible()
+                let viewController = container.viewController
+                
+
+                window.rootViewController = viewController
+                self.window = window
+                window.makeKeyAndVisible()
+            } else {
+                var context = TabBarControllContext(moduleOutput: nil)
+                context.user = user
+                let container = TabBarControllContainer.assemble(with: context)
+                
+                let viewController = container.viewController
+                
+                window.rootViewController = viewController
+                self.window = window
+                window.makeKeyAndVisible()
+            }
+        })
+
+    }
+    
+    
+    func checkAuth(show: @escaping (UserProfile, Bool) -> Void) {
+        let apiManager = ApiManager.shared
+        var user = UserProfile.init(id: 0, email: "", nickname: "", img: "", authToken: "", treksNumber: 0)
+        let authUser = UserCheckAuthRequest.init(authToken: InnerDBManager.authToken ?? "", id: InnerDBManager.userID ?? 0)
+        apiManager.checkAuth(with: authUser, completion: { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    user.id = response.id
+                    user.email = response.email
+                    user.nickname = response.nickname
+                    user.img = response.img
+                    user.authToken = response.authToken
+                    user.treksNumber = response.treksNumber
+                    show(user, true)
+                case .failure(let error):
+                    let errorCode = (error as NSError).code
+                    if errorCode == 4864 {
+                        show(user, false)
+                    }
+                }
+            }
+        })
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

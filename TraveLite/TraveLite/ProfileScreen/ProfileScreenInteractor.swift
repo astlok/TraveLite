@@ -37,7 +37,7 @@ extension ProfileScreenInteractor: ProfileScreenInteractorInput {
         })
     }
     
-    func changeProfileImage(image: UIImage, id: UInt64) {
+    func changeProfileImage(image: UIImage, id: Int) {
         print("Изменение изображения")
         let binaryImage = image.pngData()! as NSData
         let base64 = binaryImage.base64EncodedData(options: .lineLength64Characters)
