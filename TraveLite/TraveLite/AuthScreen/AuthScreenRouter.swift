@@ -6,16 +6,24 @@ final class AuthScreenRouter {
 
 extension AuthScreenRouter: AuthScreenRouterInput {
     func showRegScreen() {
-        let container = RegScreenContainer.assemble(with: .init())
+        let container = AuthRegScreenContainer.assemble(with: .init())
         sourceViewController?.present(container.viewController, animated: true, completion: nil)
     }
     
     func showProfile(with user: UserProfile) {
-        var context = ProfileScreenContext(user: nil, moduleOutput: nil)
+        var context = TabBarControllContext(moduleOutput: nil)
         context.user = user
-        let container = ProfileScreenContainer.assemble(with: context)
-        sourceViewController?.present(container.viewController, animated: true, completion: nil)
-        print(user)
+        let container = TabBarControllContainer.assemble(with: context)
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        let vc = container.viewController
+        window.rootViewController = vc
+        let options: UIView.AnimationOptions = .transitionCrossDissolve
+
+        let duration: TimeInterval = 0.3
+
+        UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)
     }
     
     func showError(with text: String) {
@@ -26,8 +34,3 @@ extension AuthScreenRouter: AuthScreenRouterInput {
         sourceViewController?.present(alertController, animated: true, completion: nil)
     }
 }
-//    *
-//   ***
-//  *****
-// *******
-//*********

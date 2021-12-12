@@ -1,37 +1,22 @@
-//
-//  ProfileScreenRouter.swift
-//  TraveLite
-//
-//  Created by Yaroslav Belykh on 16.11.2021.
-//  
-//
-
 import UIKit
 
-final class ProfileScreenRouter {
+final class AuthRegScreenRouter {
     weak var sourceViewController: UIViewController?
 }
 
-extension ProfileScreenRouter: ProfileScreenRouterInput {
-    func showTrek(with trek: Trek) {
-        var context = OneRouteContext(moduleOutput: nil)
-        context.trek = trek
-        let container = OneRouteContainer.assemble(with: context)
-        
-        sourceViewController?.present(container.viewController, animated: true, completion: nil)
-    }
+extension AuthRegScreenRouter: AuthRegScreenRouterInput {
     
-    func showAuth() {
-        let container = AuthRegScreenContainer.assemble(with: .init())
-        
+    func showProfile(with user: UserProfile) {
+        var context = TabBarControllContext(moduleOutput: nil)
+        context.user = user
+        let container = TabBarControllContainer.assemble(with: context)
         guard let window = UIApplication.shared.keyWindow else {
             return
         }
-        
         let vc = container.viewController
         window.rootViewController = vc
-        
         let options: UIView.AnimationOptions = .transitionCrossDissolve
+
         let duration: TimeInterval = 0.3
 
         UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)

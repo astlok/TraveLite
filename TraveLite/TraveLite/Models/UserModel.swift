@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct UserAuth: Encodable {
     var email: String
@@ -11,8 +12,13 @@ struct UserCreateRequest: Encodable {
     var password: String
 }
 
+struct UserCheckAuthRequest {
+    var authToken: String
+    var id: Int
+}
+
 struct UserCreateResponse: Decodable {
-    var id: UInt64
+    var id: Int
     var authToken: String
     
     enum CodingKeys: String, CodingKey {
@@ -21,12 +27,17 @@ struct UserCreateResponse: Decodable {
     }
 }
 
+struct UserImage: Encodable, Decodable {
+    var img: String
+    var id: Int
+}
+
 struct UserProfile: Decodable {
-    var id: UInt64
+    var id: Int
     var email: String
     var nickname: String
     var img: String?
-    var authToken: String
+    var authToken: String?
     var treksNumber: Int?
     
     enum CodingKeys: String, CodingKey {

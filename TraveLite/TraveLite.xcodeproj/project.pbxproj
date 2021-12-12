@@ -7,85 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1369CE19274E957B009DE61A /* TabBarControllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE13274E957B009DE61A /* TabBarControllPresenter.swift */; };
+		1369CE1A274E957B009DE61A /* TabBarControllRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE14274E957B009DE61A /* TabBarControllRouter.swift */; };
+		1369CE1B274E957B009DE61A /* TabBarControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE15274E957B009DE61A /* TabBarControllViewController.swift */; };
+		1369CE1C274E957B009DE61A /* TabBarControllProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE16274E957B009DE61A /* TabBarControllProtocols.swift */; };
+		1369CE1D274E957B009DE61A /* TabBarControllInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE17274E957B009DE61A /* TabBarControllInteractor.swift */; };
+		1369CE1E274E957B009DE61A /* TabBarControllContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369CE18274E957B009DE61A /* TabBarControllContainer.swift */; };
+		13998672275BAE6E00C772FC /* TreksScreenViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13998671275BAE6E00C772FC /* TreksScreenViewCell.swift */; };
+		13998674275BAF8F00C772FC /* Trek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13998673275BAF8F00C772FC /* Trek.swift */; };
+		139BC917275A89BF0055DD06 /* TreksScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BC911275A89BF0055DD06 /* TreksScreenPresenter.swift */; };
+		139BC918275A89BF0055DD06 /* TreksScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BC912275A89BF0055DD06 /* TreksScreenRouter.swift */; };
+		139BC919275A89BF0055DD06 /* TreksScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BC913275A89BF0055DD06 /* TreksScreenViewController.swift */; };
+		139BC91A275A89BF0055DD06 /* TreksScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BC914275A89BF0055DD06 /* TreksScreenProtocols.swift */; };
+		139BC91B275A89BF0055DD06 /* TreksScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BC915275A89BF0055DD06 /* TreksScreenInteractor.swift */; };
+		139BC91C275A89BF0055DD06 /* TreksScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BC916275A89BF0055DD06 /* TreksScreenContainer.swift */; };
 		13FC46F5274427F6003D59F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F4274427F6003D59F5 /* AppDelegate.swift */; };
 		13FC46F7274427F6003D59F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F6274427F6003D59F5 /* SceneDelegate.swift */; };
 		13FC46F9274427F6003D59F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC46F8274427F6003D59F5 /* ViewController.swift */; };
-		13FC46FC274427F6003D59F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FC46FA274427F6003D59F5 /* Main.storyboard */; };
 		13FC46FE274427F8003D59F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13FC46FD274427F8003D59F5 /* Assets.xcassets */; };
-		13FC4701274427F8003D59F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */; };
 		13FC470A27442859003D59F5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470927442859003D59F5 /* UserModel.swift */; };
 		13FC470C27442870003D59F5 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470B27442870003D59F5 /* ApiManager.swift */; };
-		13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470E27442887003D59F5 /* RegScreenPresenter.swift */; };
-		13FC471527442887003D59F5 /* RegScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470F27442887003D59F5 /* RegScreenProtocols.swift */; };
-		13FC471627442887003D59F5 /* RegScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471027442887003D59F5 /* RegScreenContainer.swift */; };
-		13FC471727442887003D59F5 /* RegScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471127442887003D59F5 /* RegScreenViewController.swift */; };
-		13FC471827442887003D59F5 /* RegScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471227442887003D59F5 /* RegScreenInteractor.swift */; };
-		13FC471927442887003D59F5 /* RegScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471327442887003D59F5 /* RegScreenRouter.swift */; };
+		13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470E27442887003D59F5 /* AuthRegScreenPresenter.swift */; };
+		13FC471527442887003D59F5 /* AuthRegScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC470F27442887003D59F5 /* AuthRegScreenProtocols.swift */; };
+		13FC471627442887003D59F5 /* AuthRegScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471027442887003D59F5 /* AuthRegScreenContainer.swift */; };
+		13FC471727442887003D59F5 /* AuthRegScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471127442887003D59F5 /* AuthRegScreenController.swift */; };
+		13FC471827442887003D59F5 /* AuthRegScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471227442887003D59F5 /* AuthRegScreenInteractor.swift */; };
+		13FC471927442887003D59F5 /* AuthRegScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471327442887003D59F5 /* AuthRegScreenRouter.swift */; };
 		13FC47212744289D003D59F5 /* AuthScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471B2744289D003D59F5 /* AuthScreenRouter.swift */; };
 		13FC47222744289D003D59F5 /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471C2744289D003D59F5 /* AuthScreenViewController.swift */; };
 		13FC47232744289D003D59F5 /* AuthScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471D2744289D003D59F5 /* AuthScreenPresenter.swift */; };
 		13FC47242744289D003D59F5 /* AuthScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471E2744289D003D59F5 /* AuthScreenInteractor.swift */; };
 		13FC47252744289D003D59F5 /* AuthScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC471F2744289D003D59F5 /* AuthScreenContainer.swift */; };
 		13FC47262744289D003D59F5 /* AuthScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC47202744289D003D59F5 /* AuthScreenProtocols.swift */; };
-		13FC472A274428B9003D59F5 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FC4728274428B9003D59F5 /* Montserrat-Light.ttf */; };
-		13FC472B274428B9003D59F5 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */; };
 		13FC472F274428FD003D59F5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472D274428FD003D59F5 /* InputView.swift */; };
 		13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC472E274428FD003D59F5 /* SubmitButtonView.swift */; };
 		2A0DAA69275CF6EF0006C724 /* TrekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0DAA68275CF6EF0006C724 /* TrekModel.swift */; };
+
+		13FDF2702753C6F300813BD4 /* InnerDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */; };
+		13FDF2742753ED3100813BD4 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FDF2722753ED3100813BD4 /* Montserrat-Light.ttf */; };
+		13FDF2752753ED3100813BD4 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FDF2732753ED3100813BD4 /* Montserrat-Regular.ttf */; };
+		1D5C8C082764E7A00098E7C9 /* OneRoutePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C022764E7A00098E7C9 /* OneRoutePresenter.swift */; };
+		1D5C8C092764E7A00098E7C9 /* OneRouteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C032764E7A00098E7C9 /* OneRouteRouter.swift */; };
+		1D5C8C0A2764E7A00098E7C9 /* OneRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C042764E7A00098E7C9 /* OneRouteViewController.swift */; };
+		1D5C8C0B2764E7A00098E7C9 /* OneRouteProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C052764E7A00098E7C9 /* OneRouteProtocols.swift */; };
+		1D5C8C0C2764E7A00098E7C9 /* OneRouteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C062764E7A00098E7C9 /* OneRouteInteractor.swift */; };
+		1D5C8C0D2764E7A00098E7C9 /* OneRouteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C072764E7A00098E7C9 /* OneRouteContainer.swift */; };
+
 		2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */; };
 		2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */; };
 		2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */; };
 		2AA8AC63274439E3002B8358 /* ProfileScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5D274439E3002B8358 /* ProfileScreenProtocols.swift */; };
 		2AA8AC64274439E3002B8358 /* ProfileScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5E274439E3002B8358 /* ProfileScreenInteractor.swift */; };
 		2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5F274439E3002B8358 /* ProfileScreenContainer.swift */; };
+
 		2AA8AC6D27516489002B8358 /* TravelScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC6727516489002B8358 /* TravelScreenPresenter.swift */; };
 		2AA8AC6E27516489002B8358 /* TravelScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC6827516489002B8358 /* TravelScreenRouter.swift */; };
 		2AA8AC6F27516489002B8358 /* TravelScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC6927516489002B8358 /* TravelScreenViewController.swift */; };
 		2AA8AC7027516489002B8358 /* TravelScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC6A27516489002B8358 /* TravelScreenProtocols.swift */; };
 		2AA8AC7127516489002B8358 /* TravelScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC6B27516489002B8358 /* TravelScreenInteractor.swift */; };
 		2AA8AC7227516489002B8358 /* TravelScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC6C27516489002B8358 /* TravelScreenContainer.swift */; };
+
+		36155964275259EF003805E2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 36155963275259EF003805E2 /* Kingfisher */; };
+		361559662753947E003805E2 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361559652753947E003805E2 /* PopUp.swift */; };
+		364ADA782750036600C0C43E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364ADA772750036600C0C43E /* AlertService.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1369CE13274E957B009DE61A /* TabBarControllPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllPresenter.swift; sourceTree = "<group>"; };
+		1369CE14274E957B009DE61A /* TabBarControllRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllRouter.swift; sourceTree = "<group>"; };
+		1369CE15274E957B009DE61A /* TabBarControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllViewController.swift; sourceTree = "<group>"; };
+		1369CE16274E957B009DE61A /* TabBarControllProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllProtocols.swift; sourceTree = "<group>"; };
+		1369CE17274E957B009DE61A /* TabBarControllInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllInteractor.swift; sourceTree = "<group>"; };
+		1369CE18274E957B009DE61A /* TabBarControllContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllContainer.swift; sourceTree = "<group>"; };
+		13998671275BAE6E00C772FC /* TreksScreenViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreksScreenViewCell.swift; sourceTree = "<group>"; };
+		13998673275BAF8F00C772FC /* Trek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trek.swift; sourceTree = "<group>"; };
+		139BC911275A89BF0055DD06 /* TreksScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreksScreenPresenter.swift; sourceTree = "<group>"; };
+		139BC912275A89BF0055DD06 /* TreksScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreksScreenRouter.swift; sourceTree = "<group>"; };
+		139BC913275A89BF0055DD06 /* TreksScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreksScreenViewController.swift; sourceTree = "<group>"; };
+		139BC914275A89BF0055DD06 /* TreksScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreksScreenProtocols.swift; sourceTree = "<group>"; };
+		139BC915275A89BF0055DD06 /* TreksScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreksScreenInteractor.swift; sourceTree = "<group>"; };
+		139BC916275A89BF0055DD06 /* TreksScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreksScreenContainer.swift; sourceTree = "<group>"; };
 		13FC46F1274427F6003D59F5 /* TraveLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraveLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13FC46F4274427F6003D59F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13FC46F6274427F6003D59F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		13FC46F8274427F6003D59F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		13FC46FB274427F6003D59F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13FC46FD274427F8003D59F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		13FC4700274427F8003D59F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13FC4702274427F8003D59F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13FC470927442859003D59F5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		13FC470B27442870003D59F5 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
-		13FC470E27442887003D59F5 /* RegScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenPresenter.swift; sourceTree = "<group>"; };
-		13FC470F27442887003D59F5 /* RegScreenProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenProtocols.swift; sourceTree = "<group>"; };
-		13FC471027442887003D59F5 /* RegScreenContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenContainer.swift; sourceTree = "<group>"; };
-		13FC471127442887003D59F5 /* RegScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenViewController.swift; sourceTree = "<group>"; };
-		13FC471227442887003D59F5 /* RegScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenInteractor.swift; sourceTree = "<group>"; };
-		13FC471327442887003D59F5 /* RegScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegScreenRouter.swift; sourceTree = "<group>"; };
+		13FC470E27442887003D59F5 /* AuthRegScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenPresenter.swift; sourceTree = "<group>"; };
+		13FC470F27442887003D59F5 /* AuthRegScreenProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenProtocols.swift; sourceTree = "<group>"; };
+		13FC471027442887003D59F5 /* AuthRegScreenContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenContainer.swift; sourceTree = "<group>"; };
+		13FC471127442887003D59F5 /* AuthRegScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenController.swift; sourceTree = "<group>"; };
+		13FC471227442887003D59F5 /* AuthRegScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenInteractor.swift; sourceTree = "<group>"; };
+		13FC471327442887003D59F5 /* AuthRegScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRegScreenRouter.swift; sourceTree = "<group>"; };
 		13FC471B2744289D003D59F5 /* AuthScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenRouter.swift; sourceTree = "<group>"; };
 		13FC471C2744289D003D59F5 /* AuthScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
 		13FC471D2744289D003D59F5 /* AuthScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenPresenter.swift; sourceTree = "<group>"; };
 		13FC471E2744289D003D59F5 /* AuthScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenInteractor.swift; sourceTree = "<group>"; };
 		13FC471F2744289D003D59F5 /* AuthScreenContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenContainer.swift; sourceTree = "<group>"; };
 		13FC47202744289D003D59F5 /* AuthScreenProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenProtocols.swift; sourceTree = "<group>"; };
-		13FC4728274428B9003D59F5 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		13FC472D274428FD003D59F5 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		13FC472E274428FD003D59F5 /* SubmitButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
+
 		2A0DAA68275CF6EF0006C724 /* TrekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrekModel.swift; sourceTree = "<group>"; };
+
+		13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerDBManager.swift; sourceTree = "<group>"; };
+		13FDF2722753ED3100813BD4 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		13FDF2732753ED3100813BD4 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		1D5C8C022764E7A00098E7C9 /* OneRoutePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRoutePresenter.swift; sourceTree = "<group>"; };
+		1D5C8C032764E7A00098E7C9 /* OneRouteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteRouter.swift; sourceTree = "<group>"; };
+		1D5C8C042764E7A00098E7C9 /* OneRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteViewController.swift; sourceTree = "<group>"; };
+		1D5C8C052764E7A00098E7C9 /* OneRouteProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteProtocols.swift; sourceTree = "<group>"; };
+		1D5C8C062764E7A00098E7C9 /* OneRouteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteInteractor.swift; sourceTree = "<group>"; };
+		1D5C8C072764E7A00098E7C9 /* OneRouteContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteContainer.swift; sourceTree = "<group>"; };
+
 		2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenPresenter.swift; sourceTree = "<group>"; };
 		2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRouter.swift; sourceTree = "<group>"; };
 		2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
 		2AA8AC5D274439E3002B8358 /* ProfileScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenProtocols.swift; sourceTree = "<group>"; };
 		2AA8AC5E274439E3002B8358 /* ProfileScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenInteractor.swift; sourceTree = "<group>"; };
 		2AA8AC5F274439E3002B8358 /* ProfileScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenContainer.swift; sourceTree = "<group>"; };
+
 		2AA8AC6727516489002B8358 /* TravelScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenPresenter.swift; sourceTree = "<group>"; };
 		2AA8AC6827516489002B8358 /* TravelScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenRouter.swift; sourceTree = "<group>"; };
 		2AA8AC6927516489002B8358 /* TravelScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenViewController.swift; sourceTree = "<group>"; };
 		2AA8AC6A27516489002B8358 /* TravelScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenProtocols.swift; sourceTree = "<group>"; };
 		2AA8AC6B27516489002B8358 /* TravelScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenInteractor.swift; sourceTree = "<group>"; };
 		2AA8AC6C27516489002B8358 /* TravelScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenContainer.swift; sourceTree = "<group>"; };
+
+		361559652753947E003805E2 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		364ADA772750036600C0C43E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,12 +147,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36155964275259EF003805E2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1369CE12274E9556009DE61A /* TabBarControll */ = {
+			isa = PBXGroup;
+			children = (
+				1369CE13274E957B009DE61A /* TabBarControllPresenter.swift */,
+				1369CE14274E957B009DE61A /* TabBarControllRouter.swift */,
+				1369CE15274E957B009DE61A /* TabBarControllViewController.swift */,
+				1369CE16274E957B009DE61A /* TabBarControllProtocols.swift */,
+				1369CE17274E957B009DE61A /* TabBarControllInteractor.swift */,
+				1369CE18274E957B009DE61A /* TabBarControllContainer.swift */,
+			);
+			path = TabBarControll;
+			sourceTree = "<group>";
+		};
+		139BC910275A89930055DD06 /* TreksScreen */ = {
+			isa = PBXGroup;
+			children = (
+				139BC911275A89BF0055DD06 /* TreksScreenPresenter.swift */,
+				139BC912275A89BF0055DD06 /* TreksScreenRouter.swift */,
+				139BC913275A89BF0055DD06 /* TreksScreenViewController.swift */,
+				139BC914275A89BF0055DD06 /* TreksScreenProtocols.swift */,
+				139BC915275A89BF0055DD06 /* TreksScreenInteractor.swift */,
+				139BC916275A89BF0055DD06 /* TreksScreenContainer.swift */,
+				13998671275BAE6E00C772FC /* TreksScreenViewCell.swift */,
+			);
+			path = TreksScreen;
+			sourceTree = "<group>";
+		};
 		13FC46E8274427F6003D59F5 = {
 			isa = PBXGroup;
 			children = (
@@ -118,21 +200,26 @@
 		13FC46F3274427F6003D59F5 /* TraveLite */ = {
 			isa = PBXGroup;
 			children = (
+
 				2AA8AC662751645C002B8358 /* TravelScreen */,
+
+				1D5C8C012764E7690098E7C9 /* OneRoute */,
+				139BC910275A89930055DD06 /* TreksScreen */,
+				13FDF2712753ED0400813BD4 /* Fonts */,
+				1369CE12274E9556009DE61A /* TabBarControll */,
+
 				2AA8AC59274439C7002B8358 /* ProfileScreen */,
 				13FC472C274428F0003D59F5 /* Components */,
-				13FC4727274428A8003D59F5 /* Fonts */,
 				13FC47082744283C003D59F5 /* Models */,
 				13FC471A27442890003D59F5 /* AuthScreen */,
-				13FC470D27442879003D59F5 /* RegScreen */,
+				13FC470D27442879003D59F5 /* AuthRegScreen */,
 				13FC470B27442870003D59F5 /* ApiManager.swift */,
 				13FC46F4274427F6003D59F5 /* AppDelegate.swift */,
 				13FC46F6274427F6003D59F5 /* SceneDelegate.swift */,
 				13FC46F8274427F6003D59F5 /* ViewController.swift */,
-				13FC46FA274427F6003D59F5 /* Main.storyboard */,
 				13FC46FD274427F8003D59F5 /* Assets.xcassets */,
-				13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */,
 				13FC4702274427F8003D59F5 /* Info.plist */,
+				13FDF26F2753C6F300813BD4 /* InnerDBManager.swift */,
 			);
 			path = TraveLite;
 			sourceTree = "<group>";
@@ -141,22 +228,26 @@
 			isa = PBXGroup;
 			children = (
 				13FC470927442859003D59F5 /* UserModel.swift */,
+
 				2A0DAA68275CF6EF0006C724 /* TrekModel.swift */,
+
+				13998673275BAF8F00C772FC /* Trek.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		13FC470D27442879003D59F5 /* RegScreen */ = {
+		13FC470D27442879003D59F5 /* AuthRegScreen */ = {
 			isa = PBXGroup;
 			children = (
-				13FC471027442887003D59F5 /* RegScreenContainer.swift */,
-				13FC471227442887003D59F5 /* RegScreenInteractor.swift */,
-				13FC470E27442887003D59F5 /* RegScreenPresenter.swift */,
-				13FC470F27442887003D59F5 /* RegScreenProtocols.swift */,
-				13FC471327442887003D59F5 /* RegScreenRouter.swift */,
-				13FC471127442887003D59F5 /* RegScreenViewController.swift */,
+				13FC471027442887003D59F5 /* AuthRegScreenContainer.swift */,
+				13FC471227442887003D59F5 /* AuthRegScreenInteractor.swift */,
+				13FC470E27442887003D59F5 /* AuthRegScreenPresenter.swift */,
+				13FC470F27442887003D59F5 /* AuthRegScreenProtocols.swift */,
+				13FC471327442887003D59F5 /* AuthRegScreenRouter.swift */,
+				13FC471127442887003D59F5 /* AuthRegScreenController.swift */,
 			);
-			path = RegScreen;
+			path = AuthRegScreen;
 			sourceTree = "<group>";
 		};
 		13FC471A27442890003D59F5 /* AuthScreen */ = {
@@ -172,22 +263,37 @@
 			path = AuthScreen;
 			sourceTree = "<group>";
 		};
-		13FC4727274428A8003D59F5 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				13FC4728274428B9003D59F5 /* Montserrat-Light.ttf */,
-				13FC4729274428B9003D59F5 /* Montserrat-Regular.ttf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		13FC472C274428F0003D59F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				361559652753947E003805E2 /* PopUp.swift */,
+				364ADA772750036600C0C43E /* AlertService.swift */,
 				13FC472D274428FD003D59F5 /* InputView.swift */,
 				13FC472E274428FD003D59F5 /* SubmitButtonView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		13FDF2712753ED0400813BD4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				13FDF2722753ED3100813BD4 /* Montserrat-Light.ttf */,
+				13FDF2732753ED3100813BD4 /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1D5C8C012764E7690098E7C9 /* OneRoute */ = {
+			isa = PBXGroup;
+			children = (
+				1D5C8C022764E7A00098E7C9 /* OneRoutePresenter.swift */,
+				1D5C8C032764E7A00098E7C9 /* OneRouteRouter.swift */,
+				1D5C8C042764E7A00098E7C9 /* OneRouteViewController.swift */,
+				1D5C8C052764E7A00098E7C9 /* OneRouteProtocols.swift */,
+				1D5C8C062764E7A00098E7C9 /* OneRouteInteractor.swift */,
+				1D5C8C072764E7A00098E7C9 /* OneRouteContainer.swift */,
+			);
+			path = OneRoute;
 			sourceTree = "<group>";
 		};
 		2AA8AC59274439C7002B8358 /* ProfileScreen */ = {
@@ -232,6 +338,9 @@
 			dependencies = (
 			);
 			name = TraveLite;
+			packageProductDependencies = (
+				36155963275259EF003805E2 /* Kingfisher */,
+			);
 			productName = TraveLite;
 			productReference = 13FC46F1274427F6003D59F5 /* TraveLite.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +369,9 @@
 				Base,
 			);
 			mainGroup = 13FC46E8274427F6003D59F5;
+			packageReferences = (
+				36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 13FC46F2274427F6003D59F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,11 +386,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13FC472A274428B9003D59F5 /* Montserrat-Light.ttf in Resources */,
-				13FC4701274427F8003D59F5 /* LaunchScreen.storyboard in Resources */,
+				13FDF2752753ED3100813BD4 /* Montserrat-Regular.ttf in Resources */,
+				13FDF2742753ED3100813BD4 /* Montserrat-Light.ttf in Resources */,
 				13FC46FE274427F8003D59F5 /* Assets.xcassets in Resources */,
-				13FC472B274428B9003D59F5 /* Montserrat-Regular.ttf in Resources */,
-				13FC46FC274427F6003D59F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,60 +400,75 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */,
+				361559662753947E003805E2 /* PopUp.swift in Sources */,
+				139BC91B275A89BF0055DD06 /* TreksScreenInteractor.swift in Sources */,
 				13FC47212744289D003D59F5 /* AuthScreenRouter.swift in Sources */,
 				13FC47242744289D003D59F5 /* AuthScreenInteractor.swift in Sources */,
-				13FC471927442887003D59F5 /* RegScreenRouter.swift in Sources */,
+				13FC471927442887003D59F5 /* AuthRegScreenRouter.swift in Sources */,
+				1369CE1C274E957B009DE61A /* TabBarControllProtocols.swift in Sources */,
+				139BC917275A89BF0055DD06 /* TreksScreenPresenter.swift in Sources */,
 				2AA8AC64274439E3002B8358 /* ProfileScreenInteractor.swift in Sources */,
+				1D5C8C0A2764E7A00098E7C9 /* OneRouteViewController.swift in Sources */,
+				1D5C8C0B2764E7A00098E7C9 /* OneRouteProtocols.swift in Sources */,
 				13FC4730274428FD003D59F5 /* SubmitButtonView.swift in Sources */,
 				2AA8AC7027516489002B8358 /* TravelScreenProtocols.swift in Sources */,
 				13FC46F9274427F6003D59F5 /* ViewController.swift in Sources */,
-				13FC471827442887003D59F5 /* RegScreenInteractor.swift in Sources */,
-				13FC471727442887003D59F5 /* RegScreenViewController.swift in Sources */,
+				13FC471827442887003D59F5 /* AuthRegScreenInteractor.swift in Sources */,
+				13FDF2702753C6F300813BD4 /* InnerDBManager.swift in Sources */,
+				13FC471727442887003D59F5 /* AuthRegScreenController.swift in Sources */,
 				2AA8AC63274439E3002B8358 /* ProfileScreenProtocols.swift in Sources */,
-				13FC471527442887003D59F5 /* RegScreenProtocols.swift in Sources */,
+				13FC471527442887003D59F5 /* AuthRegScreenProtocols.swift in Sources */,
 				13FC47222744289D003D59F5 /* AuthScreenViewController.swift in Sources */,
+
 				2AA8AC6D27516489002B8358 /* TravelScreenPresenter.swift in Sources */,
 				2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */,
 				2AA8AC7227516489002B8358 /* TravelScreenContainer.swift in Sources */,
 				13FC471427442887003D59F5 /* RegScreenPresenter.swift in Sources */,
 				2A0DAA69275CF6EF0006C724 /* TrekModel.swift in Sources */,
+
+				1D5C8C082764E7A00098E7C9 /* OneRoutePresenter.swift in Sources */,
+				2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */,
+				1369CE1A274E957B009DE61A /* TabBarControllRouter.swift in Sources */,
+				1369CE1D274E957B009DE61A /* TabBarControllInteractor.swift in Sources */,
+				1D5C8C092764E7A00098E7C9 /* OneRouteRouter.swift in Sources */,
+				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
+				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
+				13998674275BAF8F00C772FC /* Trek.swift in Sources */,
+				364ADA782750036600C0C43E /* AlertService.swift in Sources */,
+				139BC919275A89BF0055DD06 /* TreksScreenViewController.swift in Sources */,
+
 				13FC47252744289D003D59F5 /* AuthScreenContainer.swift in Sources */,
+				1369CE19274E957B009DE61A /* TabBarControllPresenter.swift in Sources */,
 				13FC46F5274427F6003D59F5 /* AppDelegate.swift in Sources */,
+
 				2AA8AC7127516489002B8358 /* TravelScreenInteractor.swift in Sources */,
 				2AA8AC6E27516489002B8358 /* TravelScreenRouter.swift in Sources */,
 				13FC471627442887003D59F5 /* RegScreenContainer.swift in Sources */,
 				2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */,
 				2AA8AC6F27516489002B8358 /* TravelScreenViewController.swift in Sources */,
+
+				13FC471627442887003D59F5 /* AuthRegScreenContainer.swift in Sources */,
+				2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */,
+				1D5C8C0D2764E7A00098E7C9 /* OneRouteContainer.swift in Sources */,
+
 				2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */,
+				1D5C8C0C2764E7A00098E7C9 /* OneRouteInteractor.swift in Sources */,
+				139BC91C275A89BF0055DD06 /* TreksScreenContainer.swift in Sources */,
+				1369CE1B274E957B009DE61A /* TabBarControllViewController.swift in Sources */,
 				13FC47232744289D003D59F5 /* AuthScreenPresenter.swift in Sources */,
+				1369CE1E274E957B009DE61A /* TabBarControllContainer.swift in Sources */,
 				13FC470C27442870003D59F5 /* ApiManager.swift in Sources */,
 				13FC470A27442859003D59F5 /* UserModel.swift in Sources */,
 				13FC472F274428FD003D59F5 /* InputView.swift in Sources */,
+				13998672275BAE6E00C772FC /* TreksScreenViewCell.swift in Sources */,
 				13FC46F7274427F6003D59F5 /* SceneDelegate.swift in Sources */,
+				139BC91A275A89BF0055DD06 /* TreksScreenProtocols.swift in Sources */,
 				13FC47262744289D003D59F5 /* AuthScreenProtocols.swift in Sources */,
+				139BC918275A89BF0055DD06 /* TreksScreenRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		13FC46FA274427F6003D59F5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13FC46FB274427F6003D59F5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		13FC46FF274427F8003D59F5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13FC4700274427F8003D59F5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		13FC4703274427F8003D59F5 /* Debug */ = {
@@ -473,7 +598,6 @@
 				INFOPLIST_FILE = TraveLite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -501,7 +625,6 @@
 				INFOPLIST_FILE = TraveLite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -540,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36155963275259EF003805E2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36155962275259EE003805E2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 13FC46E9274427F6003D59F5 /* Project object */;
 }

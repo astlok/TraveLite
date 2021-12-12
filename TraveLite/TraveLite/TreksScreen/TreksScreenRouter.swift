@@ -1,40 +1,24 @@
 //
-//  ProfileScreenRouter.swift
+//  TreksScreenRouter.swift
 //  TraveLite
 //
-//  Created by Yaroslav Belykh on 16.11.2021.
+//  Created by Олег Реуцкий on 3/12/21.
 //  
 //
 
 import UIKit
 
-final class ProfileScreenRouter {
+final class TreksScreenRouter {
     weak var sourceViewController: UIViewController?
 }
 
-extension ProfileScreenRouter: ProfileScreenRouterInput {
+extension TreksScreenRouter: TreksScreenRouterInput {
     func showTrek(with trek: Trek) {
         var context = OneRouteContext(moduleOutput: nil)
         context.trek = trek
         let container = OneRouteContainer.assemble(with: context)
         
         sourceViewController?.present(container.viewController, animated: true, completion: nil)
-    }
-    
-    func showAuth() {
-        let container = AuthRegScreenContainer.assemble(with: .init())
-        
-        guard let window = UIApplication.shared.keyWindow else {
-            return
-        }
-        
-        let vc = container.viewController
-        window.rootViewController = vc
-        
-        let options: UIView.AnimationOptions = .transitionCrossDissolve
-        let duration: TimeInterval = 0.3
-
-        UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)
     }
     
     func showError(with text: String) {
