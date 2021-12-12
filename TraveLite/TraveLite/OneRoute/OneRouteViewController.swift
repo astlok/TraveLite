@@ -17,6 +17,8 @@ final class OneRouteViewController: UIViewController {
     private let days: UILabel = UILabel()
     private let complexity: UILabel = UILabel()
     private let descr: UILabel = UILabel()
+    
+    private let downloadButton: UIButton = UIButton()
 
     init(output: OneRouteViewOutput, trek: Trek) {
         self.output = output
@@ -43,7 +45,37 @@ final class OneRouteViewController: UIViewController {
         descr.numberOfLines = 0
         descr.lineBreakMode = .byWordWrapping
         descr.text = trek.description
+       
+        downloadButton.setTitle("Скачать маршрут", for: .normal)
+        downloadButton.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
+        downloadButton.backgroundColor = UIColor(red: 0.71, green: 0.72, blue: 0.63, alpha: 0.5)
+        downloadButton.layer.cornerRadius = 10
+        
+        downloadButton.addTarget(self, action: #selector(tapDownloadButton), for: .touchUpInside)
+        
     }
+    
+    @objc
+    func tapDownloadButton() {
+        let trekData = trek.file.data(using: .utf8)
+        
+        let textURL = trekData?.dataToFile(fileName: "\(UUID().uuidString).kml")
+
+        var filesToShare = [Any]()
+
+        filesToShare.append(textURL)
+
+        let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
+
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory as NSString
+    }
+    
 
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
@@ -57,6 +89,7 @@ final class OneRouteViewController: UIViewController {
         self.view.addSubview(days)
         self.view.addSubview(descr)
         self.view.addSubview(complexity)
+        self.view.addSubview(downloadButton)
         
         name.translatesAutoresizingMaskIntoConstraints = false
         name.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 23).isActive = true
@@ -80,7 +113,12 @@ final class OneRouteViewController: UIViewController {
         descr.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 23).isActive = true
         descr.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -23).isActive = true
         descr.topAnchor.constraint(equalTo: complexity.bottomAnchor, constant: 32).isActive = true
-      
+        
+        downloadButton.translatesAutoresizingMaskIntoConstraints = false
+        downloadButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 7/8).isActive = true
+        downloadButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        downloadButton.topAnchor.constraint(equalTo: descr.bottomAnchor, constant: 32).isActive = true
+        downloadButton.heightAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1/8).isActive = true
 	}
 }
 
@@ -96,4 +134,43 @@ extension Int {
 }
 
 extension OneRouteViewController: OneRouteViewInput {
+}
+
+extension Data {
+
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory as NSString
+    }
+    /// Data into file
+    ///
+    /// - Parameters:
+    ///   - fileName: the Name of the file you want to write
+    /// - Returns: Returns the URL where the new file is located in NSURL
+    func dataToFile(fileName: String) -> NSURL? {
+
+        // Make a constant from the data
+        let data = self
+
+        // Make the file path (with the filename) where the file will be loacated after it is created
+        let filePath = getDocumentsDirectory().appendingPathComponent(fileName)
+
+        do {
+            // Write the file from data into the filepath (if there will be an error, the code jumps to the catch block below)
+            try data.write(to: URL(fileURLWithPath: filePath))
+
+            // Returns the URL where the new file is located in NSURL
+            return NSURL(fileURLWithPath: filePath)
+
+        } catch {
+            // Prints the localized description of the error from the do block
+            print("Error writing the file: \(error.localizedDescription)")
+        }
+
+        // Returns nil if there was an error in the do-catch -block
+        return nil
+
+    }
+
 }

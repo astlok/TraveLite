@@ -22,12 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 
         
-        let container = TravelScreenContainer.assemble(with: .init())
-        let viewController = container.viewController
-        
-        window.rootViewController = viewController
-        self.window = window
-        window.makeKeyAndVisible()
+//        let container = TravelScreenContainer.assemble(with: .init())
+//        let viewController = container.viewController
+//
+//        window.rootViewController = viewController
+//        self.window = window
+//        window.makeKeyAndVisible()
 
 
         checkAuth(show: { user, isAuth in
