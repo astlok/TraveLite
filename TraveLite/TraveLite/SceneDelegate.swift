@@ -21,6 +21,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
 
+        
+        let container = TravelScreenContainer.assemble(with: .init())
+        let viewController = container.viewController
+        
+        window.rootViewController = viewController
+        self.window = window
+        window.makeKeyAndVisible()
+
+
         checkAuth(show: { user, isAuth in
             if !isAuth {
                 let container = AuthRegScreenContainer.assemble(with: .init())
@@ -70,6 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             }
         })
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
