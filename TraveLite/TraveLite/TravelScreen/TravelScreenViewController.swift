@@ -55,7 +55,6 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         writeFilesButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 14)
         writeFilesButton.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
 
-        writeFilesButton.addTarget(self, action: #selector(writeFiles), for: .touchUpInside)
 
         view.backgroundColor = .white
     }
@@ -133,25 +132,10 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         self.view.layoutIfNeeded()
     }
     
-    @IBAction func writeFiles(_ sender: Any) {
+    @objc
+    func importFiles(_ sender: Any) {
         
-        let file = "\(UUID().uuidString).txt"
-        let contents = "Some text..."
-        
-        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURL = dir.appendingPathComponent(file)
-        
-        do {
-            try contents.write(to: fileURL, atomically: false, encoding: .utf8)
-        }
-        catch {
-            print("Error: \(error)")
-        }
-    }
-    
-    @IBAction func importFiles(_ sender: Any) {
-        
-        let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypePlainText as String], in: .import)
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
         present(documentPicker, animated: true, completion: nil)
@@ -165,9 +149,14 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         
         let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
-        // https://stackoverflow.com/questions/28641325/using-uidocumentpickerviewcontroller-to-import-text-in-swift
-        // надо как-то заставить работать
-        file.text = String(contentsOfFile: selectedFileURL.path)
+
+        var text2 = ""
+        do {
+            text2 = try String(contentsOf: sandboxFileURL, encoding: .utf8)
+        }
+        catch {
+            print("ERROR")
+        }
         
         if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
             print("Already exists! Do nothing")
