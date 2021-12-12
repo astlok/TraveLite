@@ -22,7 +22,7 @@ protocol TreksScreenViewInput: AnyObject {
 protocol TreksScreenViewOutput: AnyObject {
     var itemsCount: Int { get }
     
-    func item(at index: Int) -> TrekCellModell
+    func item(at index: Int) -> Trek
     
     func didLoadView()
     
@@ -44,5 +44,5 @@ protocol TreksScreenInteractorOutput: AnyObject {
 protocol TreksScreenRouterInput: AnyObject {
     func showError(with error: String)
     
-    func showTrek(with trek: TrekCellModell)
+    func showTrek(with trek: Trek)
 }

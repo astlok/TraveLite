@@ -15,7 +15,7 @@ final class TreksScreenPresenter {
 	private let router: TreksScreenRouterInput
 	private let interactor: TreksScreenInteractorInput
     
-    private var treksModels: [TrekCellModell] = []
+    private var treksModels: [Trek] = []
 
     init(router: TreksScreenRouterInput, interactor: TreksScreenInteractorInput) {
         self.router = router
@@ -43,7 +43,7 @@ extension TreksScreenPresenter: TreksScreenViewOutput {
         return treksModels.count
     }
     
-    func item(at index: Int) -> TrekCellModell {
+    func item(at index: Int) -> Trek {
         return treksModels[index]
     }
 }
@@ -60,10 +60,10 @@ extension TreksScreenPresenter: TreksScreenInteractorOutput {
     func treaksLoad(with treks: Treks) {
         for trek in treks.treks {
             if treksModels.isEmpty {
-                treksModels.append(TrekCellModell.init(with: trek))
+                treksModels.append(trek)
             }
             if !treksModels.contains(where: {$0.id == trek.id}) {
-                treksModels.append(TrekCellModell.init(with: trek))
+                treksModels.append(trek)
             }
         }
         view?.reloadData()

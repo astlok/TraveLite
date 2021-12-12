@@ -56,6 +56,7 @@ final class TreksScreenViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        selectionStyle = .none
         
         setup()
         
@@ -107,7 +108,7 @@ final class TreksScreenViewCell: UITableViewCell {
         
     }
     
-    func configure(with trekModel: TrekCellModell) {
+    func configure(with trekModel: Trek) {
         name.text = trekModel.name
         difficult.text = "Cложность: " + String(trekModel.difficult)
         days.text = "Дней похода: " + String(trekModel.days)

@@ -50,8 +50,6 @@
 		1D5C8C0B2764E7A00098E7C9 /* OneRouteProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C052764E7A00098E7C9 /* OneRouteProtocols.swift */; };
 		1D5C8C0C2764E7A00098E7C9 /* OneRouteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C062764E7A00098E7C9 /* OneRouteInteractor.swift */; };
 		1D5C8C0D2764E7A00098E7C9 /* OneRouteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C072764E7A00098E7C9 /* OneRouteContainer.swift */; };
-		1D5C8C0F2764F07A0098E7C9 /* TrekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C8C0E2764F07A0098E7C9 /* TrekModel.swift */; };
-		1D5C8C112764FA690098E7C9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C8C102764FA690098E7C9 /* Montserrat-Medium.ttf */; };
 		2AA8AC60274439E3002B8358 /* ProfileScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */; };
 		2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */; };
 		2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */; };
@@ -109,8 +107,6 @@
 		1D5C8C052764E7A00098E7C9 /* OneRouteProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteProtocols.swift; sourceTree = "<group>"; };
 		1D5C8C062764E7A00098E7C9 /* OneRouteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteInteractor.swift; sourceTree = "<group>"; };
 		1D5C8C072764E7A00098E7C9 /* OneRouteContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRouteContainer.swift; sourceTree = "<group>"; };
-		1D5C8C0E2764F07A0098E7C9 /* TrekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrekModel.swift; sourceTree = "<group>"; };
-		1D5C8C102764FA690098E7C9 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../../../../Downloads/Montserrat/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		2AA8AC5A274439E3002B8358 /* ProfileScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenPresenter.swift; sourceTree = "<group>"; };
 		2AA8AC5B274439E3002B8358 /* ProfileScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRouter.swift; sourceTree = "<group>"; };
 		2AA8AC5C274439E3002B8358 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				13FC470927442859003D59F5 /* UserModel.swift */,
-				1D5C8C0E2764F07A0098E7C9 /* TrekModel.swift */,
 				13998673275BAF8F00C772FC /* Trek.swift */,
 			);
 			path = Models;
@@ -249,7 +244,6 @@
 		13FDF2712753ED0400813BD4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				1D5C8C102764FA690098E7C9 /* Montserrat-Medium.ttf */,
 				13FDF2722753ED3100813BD4 /* Montserrat-Light.ttf */,
 				13FDF2732753ED3100813BD4 /* Montserrat-Regular.ttf */,
 			);
@@ -348,7 +342,6 @@
 			files = (
 				13FDF2752753ED3100813BD4 /* Montserrat-Regular.ttf in Resources */,
 				13FDF2742753ED3100813BD4 /* Montserrat-Light.ttf in Resources */,
-				1D5C8C112764FA690098E7C9 /* Montserrat-Medium.ttf in Resources */,
 				13FC46FE274427F8003D59F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +397,6 @@
 				13FC470C27442870003D59F5 /* ApiManager.swift in Sources */,
 				13FC470A27442859003D59F5 /* UserModel.swift in Sources */,
 				13FC472F274428FD003D59F5 /* InputView.swift in Sources */,
-				1D5C8C0F2764F07A0098E7C9 /* TrekModel.swift in Sources */,
 				13998672275BAE6E00C772FC /* TreksScreenViewCell.swift in Sources */,
 				13FC46F7274427F6003D59F5 /* SceneDelegate.swift in Sources */,
 				139BC91A275A89BF0055DD06 /* TreksScreenProtocols.swift in Sources */,

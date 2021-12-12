@@ -35,7 +35,7 @@ final class OneRouteContainer {
 }
 
 struct OneRouteContext {
-    var trek: Trek
+    var trek: Trek = Trek.init(id: 0, name: "", difficult: 0, days: 0, description: "", file: "", region: "", rating: 0, userID: 0)
     
 	weak var moduleOutput: OneRouteModuleOutput?
 }

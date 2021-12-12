@@ -16,7 +16,7 @@ final class ProfileScreenPresenter {
 	private let router: ProfileScreenRouterInput
 	private let interactor: ProfileScreenInteractorInput
     
-    private var treksModels: [TrekCellModell] = []
+    private var treksModels: [Trek] = []
 
     init(router: ProfileScreenRouterInput, interactor: ProfileScreenInteractorInput) {
         self.router = router
@@ -55,7 +55,7 @@ extension ProfileScreenPresenter: ProfileScreenViewOutput {
         return treksModels.count
     }
     
-    func item(at index: Int) -> TrekCellModell {
+    func item(at index: Int) -> Trek {
         return treksModels[index]
     }
 }
@@ -68,10 +68,10 @@ extension ProfileScreenPresenter: ProfileScreenInteractorOutput {
     func treaksLoad(with treks: Treks) {
         for trek in treks.treks {
             if treksModels.isEmpty && trek.userID == InnerDBManager.userID {
-                treksModels.append(TrekCellModell.init(with: trek))
+                treksModels.append(trek)
             }
             if !treksModels.contains(where: {$0.id == trek.id}) && trek.userID == InnerDBManager.userID {
-                treksModels.append(TrekCellModell.init(with: trek))
+                treksModels.append(trek)
             }
         }
         view?.reloadData()

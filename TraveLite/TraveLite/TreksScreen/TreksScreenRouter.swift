@@ -13,10 +13,10 @@ final class TreksScreenRouter {
 }
 
 extension TreksScreenRouter: TreksScreenRouterInput {
-    func showTrek(with trek: TrekCellModell) {
-        var context = OneRouteScreenContext(moduleOutput: nil)
+    func showTrek(with trek: Trek) {
+        var context = OneRouteContext(moduleOutput: nil)
         context.trek = trek
-        let container = OneRouteScreenContainer.assemble(with: context)
+        let container = OneRouteContainer.assemble(with: context)
         
         sourceViewController?.present(container.viewController, animated: true, completion: nil)
     }

@@ -33,7 +33,7 @@ protocol ProfileScreenViewOutput: AnyObject {
     
     var itemsCount: Int { get }
     
-    func item(at index: Int) -> TrekCellModell
+    func item(at index: Int) -> Trek
     
     func didLoadView()
     
@@ -68,5 +68,5 @@ protocol ProfileScreenRouterInput: AnyObject {
     func showAuth()
     func showError(with text: String)
     
-    func showTrek(with trek: TrekCellModell)
+    func showTrek(with trek: Trek)
 }

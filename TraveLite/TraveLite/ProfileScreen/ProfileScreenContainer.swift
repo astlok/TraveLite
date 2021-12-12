@@ -23,6 +23,8 @@ final class ProfileScreenContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return ProfileScreenContainer(view: viewController, input: presenter, router: router)
 	}

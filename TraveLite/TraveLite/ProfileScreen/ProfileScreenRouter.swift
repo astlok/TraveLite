@@ -13,6 +13,14 @@ final class ProfileScreenRouter {
 }
 
 extension ProfileScreenRouter: ProfileScreenRouterInput {
+    func showTrek(with trek: Trek) {
+        var context = OneRouteContext(moduleOutput: nil)
+        context.trek = trek
+        let container = OneRouteContainer.assemble(with: context)
+        
+        sourceViewController?.present(container.viewController, animated: true, completion: nil)
+    }
+    
     func showAuth() {
         let container = AuthRegScreenContainer.assemble(with: .init())
         
