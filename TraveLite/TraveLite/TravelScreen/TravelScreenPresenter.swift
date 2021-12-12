@@ -25,6 +25,10 @@ extension TravelScreenPresenter: TravelScreenModuleInput {
 }
 
 extension TravelScreenPresenter: TravelScreenViewOutput {
+    func didSubmit(trek: TrekCreateRequest) {
+        print("Отправка")
+    }
+    
 }
 
 extension TravelScreenPresenter: TravelScreenInteractorOutput {

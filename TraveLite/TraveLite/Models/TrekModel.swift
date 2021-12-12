@@ -30,16 +30,6 @@ struct TrekCreateRequest: Decodable {
     var description: String
     var file: String
     var region: String
-    
-//    enum CodingKeys: String, CodingKey {
-//        case name
-//        case difficult
-//        case days
-////        case things
-//        case description
-//        case file
-//        case region
-//    }
 }
 
 struct TrekCreateResponse: Decodable {
