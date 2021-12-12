@@ -29,6 +29,10 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
 
         super.init(nibName: nil, bundle: nil)
         
+        let tabImageProfile = UIImage(named: "profile_icon")
+        tabBarItem = UITabBarItem(title: "", image: tabImageProfile, selectedImage: tabImageProfile)
+        
+        view.backgroundColor = .white
         name.textAlignment = .center
         name.text = "Название"
         name.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -70,7 +74,6 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil);
 
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        view.translatesAutoresizingMaskIntoConstraints = false
 
         containerView.addSubview(name)
         containerView.addSubview(difficult)
