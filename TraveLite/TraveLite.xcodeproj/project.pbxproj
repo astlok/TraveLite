@@ -310,7 +310,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					13FC46F0274427F6003D59F5 = {
 						CreatedOnToolsVersion = 13.0;
@@ -379,12 +379,9 @@
 				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
 				2A0DAA69275CF6EF0006C724 /* TrekModel.swift in Sources */,
 				1D5C8C082764E7A00098E7C9 /* OneRoutePresenter.swift in Sources */,
-				2AA8AC65274439E3002B8358 /* ProfileScreenContainer.swift in Sources */,
 				1369CE1A274E957B009DE61A /* TabBarControllRouter.swift in Sources */,
 				1369CE1D274E957B009DE61A /* TabBarControllInteractor.swift in Sources */,
 				1D5C8C092764E7A00098E7C9 /* OneRouteRouter.swift in Sources */,
-				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
-				13FC471427442887003D59F5 /* AuthRegScreenPresenter.swift in Sources */,
 				13998674275BAF8F00C772FC /* Trek.swift in Sources */,
 				364ADA782750036600C0C43E /* AlertService.swift in Sources */,
 				139BC919275A89BF0055DD06 /* TreksScreenViewController.swift in Sources */,
@@ -395,8 +392,6 @@
 				13FC471627442887003D59F5 /* AuthRegScreenContainer.swift in Sources */,
 				2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */,
 				2AA8AC6F27516489002B8358 /* TravelScreenViewController.swift in Sources */,
-				13FC471627442887003D59F5 /* AuthRegScreenContainer.swift in Sources */,
-				2AA8AC62274439E3002B8358 /* ProfileScreenViewController.swift in Sources */,
 				1D5C8C0D2764E7A00098E7C9 /* OneRouteContainer.swift in Sources */,
 				2AA8AC61274439E3002B8358 /* ProfileScreenRouter.swift in Sources */,
 				1D5C8C0C2764E7A00098E7C9 /* OneRouteInteractor.swift in Sources */,
@@ -545,7 +540,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,7 +567,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

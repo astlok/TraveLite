@@ -29,29 +29,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
 
-
-        checkAuth(show: { user, isAuth in
-            if !isAuth {
-                let container = AuthRegScreenContainer.assemble(with: .init())
-
-                let viewController = container.viewController
-                
-
-                window.rootViewController = viewController
-                self.window = window
-                window.makeKeyAndVisible()
-            } else {
-                var context = TabBarControllContext(moduleOutput: nil)
-                context.user = user
-                let container = TabBarControllContainer.assemble(with: context)
-                
-                let viewController = container.viewController
-                
-                window.rootViewController = viewController
-                self.window = window
-                window.makeKeyAndVisible()
-            }
-        })
+//
+//        checkAuth(show: { user, isAuth in
+//            if !isAuth {
+//                let container = AuthRegScreenContainer.assemble(with: .init())
+//
+//                let viewController = container.viewController
+//                
+//
+//                window.rootViewController = viewController
+//                self.window = window
+//                window.makeKeyAndVisible()
+//            } else {
+//                var context = TabBarControllContext(moduleOutput: nil)
+//                context.user = user
+//                let container = TabBarControllContainer.assemble(with: context)
+//                
+//                let viewController = container.viewController
+//                
+//                window.rootViewController = viewController
+//                self.window = window
+//                window.makeKeyAndVisible()
+//            }
+//        })
 
     }
     

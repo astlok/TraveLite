@@ -26,21 +26,21 @@ struct TrekCreateRequest: Decodable {
     var name: String
     var difficult: UInt64
     var days: UInt64
-    var things: [UInt64]
+//    var things: [UInt64]
     var description: String
     var file: String
     var region: String
-    var authToken: String
+//    var authToken: String
     
     enum CodingKeys: String, CodingKey {
         case name
         case difficult
         case days
-        case things
+//        case things
         case description
         case file
         case region
-        case authToken = "auth_token"
+//        case authToken = "auth_token"
     }
 }
 

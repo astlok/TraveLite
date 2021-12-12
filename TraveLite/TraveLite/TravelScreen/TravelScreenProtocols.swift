@@ -19,6 +19,7 @@ protocol TravelScreenViewInput: class {
 }
 
 protocol TravelScreenViewOutput: class {
+    func didSubmit(trek: TrekCreateRequest)
 }
 
 protocol TravelScreenInteractorInput: class {
