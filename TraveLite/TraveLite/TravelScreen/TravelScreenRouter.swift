@@ -9,7 +9,24 @@
 import UIKit
 
 final class TravelScreenRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension TravelScreenRouter: TravelScreenRouterInput {
+    func showTreks() {
+        // TODO: SHOW SOMWTHINS
+//        let context = TreksScreenContext(moduleOutput: nil)
+//        let container = TreksScreenContainer.assemble(with: context)
+//
+//        sourceViewController?.present(container.viewController, animated: true, completion: nil)
+    }
+    
+    func showError(with text: String) {
+        let alertController = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        
+        alertController.addAction(.init(title: "OK", style: .default, handler: nil))
+        
+        sourceViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
 }

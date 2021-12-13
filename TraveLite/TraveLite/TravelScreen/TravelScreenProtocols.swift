@@ -12,21 +12,28 @@ protocol TravelScreenModuleInput {
 	var moduleOutput: TravelScreenModuleOutput? { get }
 }
 
-protocol TravelScreenModuleOutput: class {
+protocol TravelScreenModuleOutput: AnyObject {
 }
 
-protocol TravelScreenViewInput: class {
+protocol TravelScreenViewInput: AnyObject {
 }
 
-protocol TravelScreenViewOutput: class {
+protocol TravelScreenViewOutput: AnyObject {
     func didSubmit(trek: TrekCreateRequest)
 }
 
-protocol TravelScreenInteractorInput: class {
+protocol TravelScreenInteractorInput: AnyObject {
+    func didCreateTrek(trek: TrekCreateRequest)
 }
 
-protocol TravelScreenInteractorOutput: class {
+protocol TravelScreenInteractorOutput: AnyObject {
+    func didCreate(with trek: Trek)
+    
+    func didFail(with error: Error)
 }
 
-protocol TravelScreenRouterInput: class {
+protocol TravelScreenRouterInput: AnyObject {
+    func showTreks()
+
+    func showError(with text: String)
 }

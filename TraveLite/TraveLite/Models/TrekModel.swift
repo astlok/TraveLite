@@ -22,10 +22,10 @@ import Foundation
 //  "rating": 4.2
 //}
 
-struct TrekCreateRequest: Decodable {
+struct TrekCreateRequest: Encodable, Decodable {
     var name: String
-    var difficult: UInt64
-    var days: UInt64
+    var difficult: Int
+    var days: Int
 //    var things: [UInt64]
     var description: String
     var file: String
@@ -33,14 +33,15 @@ struct TrekCreateRequest: Decodable {
 }
 
 struct TrekCreateResponse: Decodable {
-    var id: UInt64
+    var id: Int
     var name: String
-    var difficult: UInt64
-    var days: UInt64
+    var difficult: Int
+    var days: Int
 //    var things: [UInt64]
     var description: String
     var file: String
     var region: String
+    var userID: Int
 //    var rating: Float
 //    var authToken: String
     

@@ -26,10 +26,18 @@ extension TravelScreenPresenter: TravelScreenModuleInput {
 
 extension TravelScreenPresenter: TravelScreenViewOutput {
     func didSubmit(trek: TrekCreateRequest) {
-        print("Отправка")
+        interactor.didCreateTrek(trek: trek)
     }
     
 }
 
 extension TravelScreenPresenter: TravelScreenInteractorOutput {
+    func didCreate(with trek: Trek) {
+        router.showTreks()
+    }
+    
+    func didFail(with error: Error) {
+        router.showError(with: error.localizedDescription)
+    }
+    
 }

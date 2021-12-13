@@ -212,12 +212,12 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
             print("NOT VALID")
         }
         if let difficult = difficultInput.text {
-            trek.difficult = UInt64(difficult) ?? 1
+            trek.difficult = Int(difficult) ?? 1
         } else {
             print("NOT VALID")
         }
         if let days = daysInput.text {
-            trek.days = UInt64(days) ?? 1
+            trek.days = Int(days) ?? 1
         } else {
             print("NOT VALID")
         }
