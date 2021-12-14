@@ -13,12 +13,12 @@ final class TravelScreenRouter {
 }
 
 extension TravelScreenRouter: TravelScreenRouterInput {
-    func showTreks() {
-        // TODO: SHOW SOMWTHINS
-//        let context = TreksScreenContext(moduleOutput: nil)
-//        let container = TreksScreenContainer.assemble(with: context)
-//
-//        sourceViewController?.present(container.viewController, animated: true, completion: nil)
+    func showTrek(with trek: Trek) {
+        var context = OneRouteContext(moduleOutput: nil)
+        context.trek = trek
+        let container = OneRouteContainer.assemble(with: context)
+        
+        sourceViewController?.present(container.viewController, animated: true, completion: nil)
     }
     
     func showError(with text: String) {

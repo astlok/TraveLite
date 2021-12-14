@@ -70,7 +70,7 @@ final class ProfileScreenViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-        assignBackground()
+//        assignBackground()
         
         let segmentTextContent = [
 //            NSLocalizedString("Пройдено", comment: ""),
@@ -93,19 +93,19 @@ final class ProfileScreenViewController: UIViewController {
         settings.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -22).isActive = true
         settings.widthAnchor.constraint(equalToConstant: 25).isActive = true
         settings.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        settings.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 33).isActive = true
+        settings.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 13).isActive = true
         
         exit.translatesAutoresizingMaskIntoConstraints = false
         exit.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 22).isActive = true
         exit.widthAnchor.constraint(equalToConstant: 25).isActive = true
         exit.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        exit.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 33).isActive = true
+        exit.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 13).isActive = true
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 64).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 64).isActive = true
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -117,7 +117,7 @@ final class ProfileScreenViewController: UIViewController {
         segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         segmentedControl.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        segmentedControl.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 30).isActive = true
+        segmentedControl.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 60).isActive = true
         
         tableContainerViewController.view.translatesAutoresizingMaskIntoConstraints = false
         tableContainerViewController.view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true

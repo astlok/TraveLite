@@ -33,7 +33,7 @@ protocol TravelScreenInteractorOutput: AnyObject {
 }
 
 protocol TravelScreenRouterInput: AnyObject {
-    func showTreks()
+    func showTrek(with trek: Trek)
 
     func showError(with text: String)
 }

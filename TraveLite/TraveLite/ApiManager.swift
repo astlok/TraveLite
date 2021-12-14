@@ -26,7 +26,7 @@ protocol ApiManagerDescription {
 
 final class ApiManager: ApiManagerDescription {
     func createTrek(trek: TrekCreateRequest, token: String, completion: @escaping (Result<TrekCreateResponse, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/trek") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/trek") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
@@ -71,7 +71,7 @@ final class ApiManager: ApiManagerDescription {
     }
     
     func exit(token: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/logout") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/logout") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
@@ -97,7 +97,7 @@ final class ApiManager: ApiManagerDescription {
     private init() {}
     
     func changeProfile(with user: UserCreateRequest, token: String, completion: @escaping (Result<UserCreateRequest, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/profile") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
@@ -127,7 +127,7 @@ final class ApiManager: ApiManagerDescription {
     }
     
     func loadTreks(token: String, completion: @escaping (Result<Treks, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/trek") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/trek") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
@@ -166,7 +166,7 @@ final class ApiManager: ApiManagerDescription {
     
     
     func changeProfileImage(with userImage: UserImage, token: String, completion: @escaping (Result<UserImage, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile/avatar") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/profile/avatar") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
@@ -211,7 +211,7 @@ final class ApiManager: ApiManagerDescription {
     }
     
     func checkAuth(with user: UserCheckAuthRequest, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile/\(user.id)") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/profile/\(user.id)") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
@@ -246,7 +246,7 @@ final class ApiManager: ApiManagerDescription {
     }
     
     func regUser(with user: UserCreateRequest, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/profile") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/profile") else {
             completion(.failure(NetworkError.unexpected))
             return
         }
@@ -295,7 +295,7 @@ final class ApiManager: ApiManagerDescription {
     
     
     func authUser(with user: UserAuth, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:8080/api/v1/login") else {
+        guard let url = URL(string: "https://findfreelancer.ru/api/v1/login") else {
             completion(.failure(NetworkError.unexpected))
             return
         }

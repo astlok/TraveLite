@@ -485,6 +485,10 @@ final class AuthRegScreenViewController: UIViewController {
         return emailPred.evaluate(with: email)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }
 
 extension AuthRegScreenViewController: AuthRegScreenViewInput {

@@ -174,7 +174,7 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         self.output = output
         super.init(nibName: nil, bundle: nil)
         
-        let tabImageProfile = UIImage(named: "profile_icon")
+        let tabImageProfile = UIImage(named: "plus")
                 tabBarItem = UITabBarItem(title: "", image: tabImageProfile, selectedImage: tabImageProfile)
         
         view.backgroundColor = .white
@@ -194,6 +194,10 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         
         setupScrollView()
         setup()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     @objc
@@ -231,6 +235,12 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         } else {
             print("NOT VALID")
         }
+        
+        difficultInput.text = ""
+        daysInput.text = ""
+        descriptionInput.text = ""
+        regionInput.text = ""
+        nameInput.text = ""
 
         output.didSubmit(trek: trek)
     }
@@ -289,7 +299,7 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         
         topLabelConstraint?.isActive = false
-        topLabelConstraint = textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.height / 2 - 200)
+        topLabelConstraint = textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: view.bounds.height / 2 - 350)
         topLabelConstraint?.isActive = true
         
         textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
@@ -403,10 +413,11 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
 
         var text2 = ""
         do {
-            text2 = try String(contentsOf: sandboxFileURL, encoding: .utf8)
+            //TODO: Если юзаешь симулятор - замени selectedFileURL на sandboxFileURL
+            text2 = try String(contentsOf: selectedFileURL, encoding: .utf8)
         }
-        catch {
-            print("ERROR")
+        catch  {
+            print("Error \(error)")
         }
         
         trek.file = text2
@@ -472,3 +483,4 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
 
 extension TravelScreenViewController: TravelScreenViewInput {
 }
+

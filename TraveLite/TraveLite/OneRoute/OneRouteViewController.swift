@@ -19,6 +19,9 @@ final class OneRouteViewController: UIViewController {
     private let descr: UILabel = UILabel()
     
     private let downloadButton: UIButton = UIButton()
+    
+    let contentView = UIView()
+    let scrollView = UIScrollView()
 
     init(output: OneRouteViewOutput, trek: Trek) {
         self.output = output
@@ -29,19 +32,19 @@ final class OneRouteViewController: UIViewController {
         self.view.backgroundColor = .white
         
         name.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        name.font = UIFont(name: "Montserrat-Medium", size: 24)
+        name.font = UIFont.systemFont(ofSize: 34)
         name.text = trek.name
         
         days.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        days.font = UIFont(name: "Montserrat-Regular", size: 14)
+        days.font = UIFont.systemFont(ofSize: 23)
         days.text = "Время маршрута:  \(trek.days.days())"
         
         complexity.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        complexity.font = UIFont(name: "Montserrat-Regular", size: 14)
+        complexity.font = UIFont.systemFont(ofSize: 23)
         complexity.text = "Сложность маршрута:  \(trek.days)"
         
         descr.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        descr.font = UIFont(name: "Montserrat-Medium", size: 14)
+        descr.font = UIFont.systemFont(ofSize: 20)
         descr.numberOfLines = 0
         descr.lineBreakMode = .byWordWrapping
         descr.text = trek.description
@@ -85,42 +88,65 @@ final class OneRouteViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
-        self.view.addSubview(name)
-        self.view.addSubview(days)
-        self.view.addSubview(descr)
-        self.view.addSubview(complexity)
-        self.view.addSubview(downloadButton)
+        setupScrollView()
+        
+        self.contentView.addSubview(name)
+        self.contentView.addSubview(days)
+        self.contentView.addSubview(descr)
+        self.contentView.addSubview(complexity)
+        self.contentView.addSubview(downloadButton)
         
         name.translatesAutoresizingMaskIntoConstraints = false
-        name.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 23).isActive = true
-        name.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -23).isActive = true
+        name.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 23).isActive = true
+        name.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -23).isActive = true
         name.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        name.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16).isActive = true
+        name.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16).isActive = true
         
         days.translatesAutoresizingMaskIntoConstraints = false
-        days.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 23).isActive = true
-        days.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -23).isActive = true
-        days.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        days.topAnchor.constraint(equalTo: name.bottomAnchor).isActive = true
+        days.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 23).isActive = true
+        days.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -23).isActive = true
+//        days.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        days.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 10).isActive = true
         
         complexity.translatesAutoresizingMaskIntoConstraints = false
-        complexity.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 23).isActive = true
-        complexity.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -23).isActive = true
-        complexity.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        complexity.topAnchor.constraint(equalTo: days.bottomAnchor).isActive = true
+        complexity.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 23).isActive = true
+        complexity.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -23).isActive = true
+//        complexity.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        complexity.topAnchor.constraint(equalTo: days.bottomAnchor, constant: 10).isActive = true
         
         descr.translatesAutoresizingMaskIntoConstraints = false
-        descr.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 23).isActive = true
-        descr.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -23).isActive = true
+        descr.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 23).isActive = true
+        descr.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -23).isActive = true
         descr.topAnchor.constraint(equalTo: complexity.bottomAnchor, constant: 32).isActive = true
         
         downloadButton.translatesAutoresizingMaskIntoConstraints = false
-        downloadButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 7/8).isActive = true
-        downloadButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        downloadButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 7/8).isActive = true
+        downloadButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         downloadButton.topAnchor.constraint(equalTo: descr.bottomAnchor, constant: 32).isActive = true
-        downloadButton.heightAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1/8).isActive = true
+        downloadButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        downloadButton.heightAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 1/8).isActive = true
 	}
+    
+    func setupScrollView(){
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+    }
+
 }
+
+
 
 extension Int {
      func days() -> String {

@@ -33,7 +33,7 @@ extension TravelScreenPresenter: TravelScreenViewOutput {
 
 extension TravelScreenPresenter: TravelScreenInteractorOutput {
     func didCreate(with trek: Trek) {
-        router.showTreks()
+        router.showTrek(with: trek)
     }
     
     func didFail(with error: Error) {
