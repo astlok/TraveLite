@@ -23,7 +23,7 @@ extension AuthRegScreenRouter: AuthRegScreenRouterInput {
     }
     
     func showError(with text: String) {
-        let alertController = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Ошибка", message: text, preferredStyle: .alert)
         
         alertController.addAction(.init(title: "OK", style: .default, handler: nil))
         

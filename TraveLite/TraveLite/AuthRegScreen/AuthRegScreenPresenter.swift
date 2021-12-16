@@ -36,6 +36,6 @@ extension AuthRegScreenPresenter: AuthRegScreenInteractorOutput {
     }
     
     func didFail(with error: Error) {
-        router.showError(with: error.localizedDescription)
+        router.showError(with: "Неверные имейл или пароль")
     }
 }

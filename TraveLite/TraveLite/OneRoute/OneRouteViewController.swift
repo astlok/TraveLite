@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMapsUtils
+import GoogleMaps
 
 final class OneRouteViewController: UIViewController {
 	private let output: OneRouteViewOutput
@@ -19,9 +21,16 @@ final class OneRouteViewController: UIViewController {
     private let descr: UILabel = UILabel()
     
     private let downloadButton: UIButton = UIButton()
+    private let fileName = "\(UUID().uuidString).kml"
     
     let contentView = UIView()
     let scrollView = UIScrollView()
+    
+    private var mapView: GMSMapView = {
+        GMSServices.provideAPIKey("AIzaSyBzsvS-pJLswlR4fKZPzQ_2vLIE_3YL5Uo")
+        let map = GMSMapView()
+        return map
+    }()
 
     init(output: OneRouteViewOutput, trek: Trek) {
         self.output = output
@@ -34,6 +43,8 @@ final class OneRouteViewController: UIViewController {
         name.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         name.font = UIFont.systemFont(ofSize: 34)
         name.text = trek.name
+        name.lineBreakMode = .byWordWrapping
+        name.numberOfLines = 0
         
         days.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         days.font = UIFont.systemFont(ofSize: 23)
@@ -41,7 +52,7 @@ final class OneRouteViewController: UIViewController {
         
         complexity.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         complexity.font = UIFont.systemFont(ofSize: 23)
-        complexity.text = "Сложность маршрута:  \(trek.days)"
+        complexity.text = "Сложность маршрута:  \(trek.difficult)"
         
         descr.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         descr.font = UIFont.systemFont(ofSize: 20)
@@ -55,14 +66,13 @@ final class OneRouteViewController: UIViewController {
         downloadButton.layer.cornerRadius = 10
         
         downloadButton.addTarget(self, action: #selector(tapDownloadButton), for: .touchUpInside)
-        
     }
     
     @objc
     func tapDownloadButton() {
         let trekData = trek.file.data(using: .utf8)
         
-        let textURL = trekData?.dataToFile(fileName: "\(UUID().uuidString).kml")
+        let textURL = trekData?.dataToFile(fileName: fileName)
 
         var filesToShare = [Any]()
 
@@ -88,18 +98,28 @@ final class OneRouteViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
+        let camera = GMSCameraPosition.camera(
+            withLatitude: 60.89,
+            longitude: 29.17,
+            zoom: 5
+        )
+        
+        mapView = GMSMapView(frame: self.view.bounds, camera: camera)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        
         setupScrollView()
         
         self.contentView.addSubview(name)
         self.contentView.addSubview(days)
         self.contentView.addSubview(descr)
         self.contentView.addSubview(complexity)
+        self.contentView.addSubview(mapView)
         self.contentView.addSubview(downloadButton)
         
         name.translatesAutoresizingMaskIntoConstraints = false
         name.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 23).isActive = true
         name.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -23).isActive = true
-        name.heightAnchor.constraint(equalToConstant: 64).isActive = true
+//        name.heightAnchor.constraint(equalToConstant: 64).isActive = true
         name.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16).isActive = true
         
         days.translatesAutoresizingMaskIntoConstraints = false
@@ -119,13 +139,39 @@ final class OneRouteViewController: UIViewController {
         descr.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -23).isActive = true
         descr.topAnchor.constraint(equalTo: complexity.bottomAnchor, constant: 32).isActive = true
         
+        mapView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 7/8).isActive = true
+        mapView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: descr.bottomAnchor, constant: 32).isActive = true
+        mapView.heightAnchor.constraint(equalToConstant: 600).isActive = true
+        
         downloadButton.translatesAutoresizingMaskIntoConstraints = false
         downloadButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 7/8).isActive = true
         downloadButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
-        downloadButton.topAnchor.constraint(equalTo: descr.bottomAnchor, constant: 32).isActive = true
+        downloadButton.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 32).isActive = true
         downloadButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         downloadButton.heightAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 1/8).isActive = true
+        
+        let trekData = trek.file.data(using: .utf8)
+        
+        let textURL = trekData?.dataToFile(fileName: fileName)
+        
+        renderKml(with: textURL?.absoluteURL ?? URL.init(fileURLWithPath: ""))
 	}
+    
+    func renderKml(with url: URL) {
+        let kmlParser = GMUKMLParser(url: url)
+
+        kmlParser.parse()
+
+        let renderer = GMUGeometryRenderer(
+            map: mapView,
+            geometries: kmlParser.placemarks,
+            styles: kmlParser.styles,
+            styleMaps: kmlParser.styleMaps
+        )
+
+        renderer.render()
+    }
     
     func setupScrollView(){
         scrollView.translatesAutoresizingMaskIntoConstraints = false

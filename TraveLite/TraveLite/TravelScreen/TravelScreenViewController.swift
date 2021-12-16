@@ -9,7 +9,7 @@
 import UIKit
 import MobileCoreServices
 
-final class TravelScreenViewController: UIViewController, UIDocumentPickerDelegate {
+final class TravelScreenViewController: UIViewController, UIDocumentPickerDelegate, UITextViewDelegate {
     private let output: TravelScreenViewOutput
     private var trek: TrekCreateRequest = TrekCreateRequest(name: "", difficult: 0, days: 0, description: "", file: "", region: "")
     
@@ -95,12 +95,19 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         return label
     }()
     
-    let descriptionInput: InputView = {
-        let input = InputView()
-        input.placeholder = "Введите описание похода"
+    let descriptionInput: UITextView = {
+        let input = UITextView()
         input.translatesAutoresizingMaskIntoConstraints = false
-        input.addTarget(self, action: #selector(checkDescriptionInput), for: .editingChanged)
-        input.addTarget(self, action: #selector(checkDescriptionInput), for: .editingDidBegin)
+        input.textColor = UIColor.gray
+        input.backgroundColor = .white
+        input.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        input.layer.cornerRadius = 10
+        input.layer.borderColor = UIColor.gray.cgColor
+        input.layer.borderWidth = 0.5
+
+        input.autocapitalizationType = .none
+        input.font = UIFont(name: "Montserrat-Medium", size: 17)
+        input.text = "Введите описание похода"
 
         return input
     }()
@@ -192,8 +199,28 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil);
         
+        descriptionInput.delegate = self
+        
         setupScrollView()
         setup()
+        
+        descriptionInput.textColor = UIColor.gray
+        descriptionInput.backgroundColor = .white
+        descriptionInput.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        descriptionInput.layer.cornerRadius = 10
+        descriptionInput.layer.borderColor = UIColor.gray.cgColor
+        descriptionInput.layer.borderWidth = 0.5
+
+        descriptionInput.autocapitalizationType = .none
+        descriptionInput.font = UIFont.systemFont(ofSize: 17)
+        descriptionInput.text = "Введите описание похода"
+        
+        descriptionInput.textContainerInset = UIEdgeInsets(
+                top: 20,
+                left: 16,
+                bottom: 0,
+                right: 20
+        )
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -352,7 +379,7 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
         descriptionInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         descriptionInput.topAnchor.constraint(equalTo: daysInput.bottomAnchor, constant: 20).isActive = true
         descriptionInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 7/8).isActive = true
-        descriptionInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        descriptionInput.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         contentView.addSubview(descriptionInputSuggest)
         descriptionInputSuggest.isHidden = true
@@ -396,7 +423,6 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
     
     @objc
     func importFiles(_ sender: Any) {
-        
         let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
@@ -484,3 +510,25 @@ final class TravelScreenViewController: UIViewController, UIDocumentPickerDelega
 extension TravelScreenViewController: TravelScreenViewInput {
 }
 
+extension TravelScreenViewController {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.gray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text?.count ?? 0 > 20 {
+            textView.layer.borderColor = UIColor.green.cgColor
+            descriptionInputSuggest.isHidden = true
+        } else {
+            textView.layer.borderColor = UIColor.red.cgColor
+            descriptionInputSuggest.isHidden = false
+        }
+        if textView.text.isEmpty {
+            textView.text = "Введите описание похода"
+            textView.textColor = UIColor.gray
+        }
+    }
+}

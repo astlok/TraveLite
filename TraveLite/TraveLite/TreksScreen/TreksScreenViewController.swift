@@ -57,7 +57,7 @@ final class TreksScreenViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.topAnchor).isActive = true
+//        label.bottomAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.topAnchor).isActive = true
         label.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
         
         

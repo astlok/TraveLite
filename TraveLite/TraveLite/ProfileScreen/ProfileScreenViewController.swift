@@ -130,7 +130,7 @@ final class ProfileScreenViewController: UIViewController {
         notFoundLabel.numberOfLines = 0
         notFoundLabel.lineBreakMode = .byWordWrapping
         notFoundLabel.textAlignment = .center
-        notFoundLabel.text = "Вы еще добавляли маршруты"
+        notFoundLabel.text = "Вы еще не добавляли маршруты"
         
         tableContainerViewController.view.addSubview(notFoundLabel)
         tableView.translatesAutoresizingMaskIntoConstraints = false

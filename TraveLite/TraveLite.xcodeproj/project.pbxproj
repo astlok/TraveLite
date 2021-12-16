@@ -116,8 +116,10 @@
 		2AA8AC6A27516489002B8358 /* TravelScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenProtocols.swift; sourceTree = "<group>"; };
 		2AA8AC6B27516489002B8358 /* TravelScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenInteractor.swift; sourceTree = "<group>"; };
 		2AA8AC6C27516489002B8358 /* TravelScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScreenContainer.swift; sourceTree = "<group>"; };
+		35ABF29039745A21D6A6CC53 /* Pods-TraveLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TraveLite.release.xcconfig"; path = "Target Support Files/Pods-TraveLite/Pods-TraveLite.release.xcconfig"; sourceTree = "<group>"; };
 		361559652753947E003805E2 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		364ADA772750036600C0C43E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		DD514291A7FA4EDDF09966EC /* Pods-TraveLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TraveLite.debug.xcconfig"; path = "Target Support Files/Pods-TraveLite/Pods-TraveLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				13FC46F3274427F6003D59F5 /* TraveLite */,
 				13FC46F2274427F6003D59F5 /* Products */,
+				6AEEF4F847E5FD785F982779 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,6 +284,15 @@
 			path = TravelScreen;
 			sourceTree = "<group>";
 		};
+		6AEEF4F847E5FD785F982779 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD514291A7FA4EDDF09966EC /* Pods-TraveLite.debug.xcconfig */,
+				35ABF29039745A21D6A6CC53 /* Pods-TraveLite.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,9 +300,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13FC4705274427F8003D59F5 /* Build configuration list for PBXNativeTarget "TraveLite" */;
 			buildPhases = (
+				91D54F42650FEC68AB940DB6 /* [CP] Check Pods Manifest.lock */,
 				13FC46ED274427F6003D59F5 /* Sources */,
 				13FC46EE274427F6003D59F5 /* Frameworks */,
 				13FC46EF274427F6003D59F5 /* Resources */,
+				46AC3937D912D900164A85CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -352,6 +366,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46AC3937D912D900164A85CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TraveLite/Pods-TraveLite-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TraveLite/Pods-TraveLite-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TraveLite/Pods-TraveLite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91D54F42650FEC68AB940DB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TraveLite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		13FC46ED274427F6003D59F5 /* Sources */ = {
@@ -464,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -519,7 +575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -531,26 +587,28 @@
 		};
 		13FC4706274427F8003D59F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD514291A7FA4EDDF09966EC /* Pods-TraveLite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S4WUTP5DQR;
+				DEVELOPMENT_TEAM = 7KDP77J7AG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TraveLite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TraveLite;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TraveLite;
+				PRODUCT_BUNDLE_IDENTIFIER = TraveLite.Bizarro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -560,26 +618,28 @@
 		};
 		13FC4707274427F8003D59F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35ABF29039745A21D6A6CC53 /* Pods-TraveLite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S4WUTP5DQR;
+				DEVELOPMENT_TEAM = 7KDP77J7AG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TraveLite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TraveLite;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TraveLite;
+				PRODUCT_BUNDLE_IDENTIFIER = TraveLite.Bizarro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

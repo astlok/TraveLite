@@ -59,7 +59,7 @@ final class ApiManager: ApiManagerDescription {
             let decoder = JSONDecoder()
             
             do {
-                print(try? JSONSerialization.jsonObject(with: data, options: []))
+//                print(try? JSONSerialization.jsonObject(with: data, options: []))
                 let result = try decoder.decode(TrekCreateResponse.self, from: data)
   
                 completion(.success(result))
@@ -150,7 +150,7 @@ final class ApiManager: ApiManagerDescription {
             let decoder = JSONDecoder()
             
             do {
-                print(try? JSONSerialization.jsonObject(with: data, options: []))
+//                print(try? JSONSerialization.jsonObject(with: data, options: []))
                 let result = try decoder.decode([Trek].self, from: data)
                 
                 let treks: Treks = .init(treks: result)
@@ -235,7 +235,7 @@ final class ApiManager: ApiManagerDescription {
             
             do {
                 var userProfile: UserProfile = UserProfile(id: 0, email: "", nickname: "", img: "", authToken: "", treksNumber: 0)
-                print(try? JSONSerialization.jsonObject(with: data, options: []))
+//                print(try? JSONSerialization.jsonObject(with: data, options: []))
                 let result = try decoder.decode(UserProfile.self, from: data)
                 completion(.success(result))
             } catch let error {
@@ -278,7 +278,7 @@ final class ApiManager: ApiManagerDescription {
             
             do {
                 var userProfile: UserProfile = UserProfile(id: 0, email: "", nickname: "", img: "", authToken: "", treksNumber: 0)
-                print(try? JSONSerialization.jsonObject(with: data, options: []))
+//                print(try? JSONSerialization.jsonObject(with: data, options: []))
                 let result = try decoder.decode(UserCreateResponse.self, from: data)
                 userProfile.nickname = user.nickname
                 userProfile.email = user.email
@@ -326,7 +326,7 @@ final class ApiManager: ApiManagerDescription {
             let decoder = JSONDecoder()
             
             do {
-                print(try? JSONSerialization.jsonObject(with: data, options: []))
+//                print(try? JSONSerialization.jsonObject(with: data, options: []))
                 let result = try decoder.decode(UserProfile.self, from: data)
                 
                 completion(.success(result))
