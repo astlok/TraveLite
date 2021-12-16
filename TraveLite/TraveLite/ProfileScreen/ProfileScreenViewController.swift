@@ -55,7 +55,7 @@ final class ProfileScreenViewController: UIViewController {
         exit.isUserInteractionEnabled = true
         exit.addGestureRecognizer(exitTap)
         
-        tableContainerViewController.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        tableContainerViewController.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         
         let tabImageProfile = UIImage(named: "profile_icon")
         tabBarItem = UITabBarItem(title: "", image: tabImageProfile, selectedImage: tabImageProfile)
@@ -74,20 +74,19 @@ final class ProfileScreenViewController: UIViewController {
         
         let segmentTextContent = [
 //            NSLocalizedString("Пройдено", comment: ""),
-            NSLocalizedString("Загружено", comment: "")
+            NSLocalizedString("Ваши маршруты", comment: "")
         ]
         
         let segmentedControl = UISegmentedControl(items: segmentTextContent)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.autoresizingMask = .flexibleWidth
-        segmentedControl.addTarget(self, action: #selector(changeTab), for: .valueChanged)
         
         self.view.addSubview(profileImageView)
         self.view.addSubview(label)
         self.view.addSubview(settings)
         self.view.addSubview(exit)
-        self.view.addSubview(segmentedControl)
         self.view.addSubview(tableContainerViewController.view)
+        self.view.addSubview(segmentedControl)
         
         settings.translatesAutoresizingMaskIntoConstraints = false
         settings.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -22).isActive = true
@@ -131,15 +130,7 @@ final class ProfileScreenViewController: UIViewController {
         notFoundLabel.numberOfLines = 0
         notFoundLabel.lineBreakMode = .byWordWrapping
         notFoundLabel.textAlignment = .center
-        notFoundLabel.text = "Пользователь не проходил маршруты"
-        
-        tableContainerViewController.view.addSubview(notFoundLabel)
-        
-        notFoundLabel.tag = 1
-        notFoundLabel.translatesAutoresizingMaskIntoConstraints = false
-        notFoundLabel.centerXAnchor.constraint(equalTo: tableContainerViewController.view.centerXAnchor).isActive = true
-        notFoundLabel.centerYAnchor.constraint(equalTo: tableContainerViewController.view.centerYAnchor).isActive = true
-        notFoundLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        notFoundLabel.text = "Вы еще добавляли маршруты"
         
         tableContainerViewController.view.addSubview(notFoundLabel)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -177,25 +168,6 @@ final class ProfileScreenViewController: UIViewController {
         imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-    }
-
-    @objc
-    func changeTab(_ sender: UISegmentedControl) {
-        let selected = sender.selectedSegmentIndex
-        
-//        if let remove = tableContainerViewController.view.viewWithTag(1) {
-//            remove.removeFromSuperview()
-//        }
-        
-        switch selected {
-        case 0:
-            notFoundLabel.text = "Пользователь не проходил маршруты"
-        case 1:
-            notFoundLabel.text = "Пользователь не загрузил ни один маршрут"
-        default:
-            print("Error profile VC")
-        }
     }
     
     @objc
@@ -249,7 +221,7 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
         popup.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         popup.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         popup.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        popup.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        popup.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
         popup.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
     }
     
@@ -282,6 +254,16 @@ extension ProfileScreenViewController: ProfileScreenViewInput {
     }
     
     func reloadData() {
+        if output.itemsCount != 0 {
+            notFoundLabel.removeFromSuperview()
+        } else {
+            tableContainerViewController.view.addSubview(notFoundLabel)
+            
+            notFoundLabel.translatesAutoresizingMaskIntoConstraints = false
+            notFoundLabel.centerXAnchor.constraint(equalTo: tableContainerViewController.view.centerXAnchor).isActive = true
+            notFoundLabel.centerYAnchor.constraint(equalTo: tableContainerViewController.view.centerYAnchor).isActive = true
+            notFoundLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        }
         tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }

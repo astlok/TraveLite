@@ -11,7 +11,6 @@ class InputView: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.alpha = 0.8
         self.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         self.backgroundColor = .white
         self.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
@@ -20,7 +19,9 @@ class InputView: UITextField {
         self.layer.borderWidth = 0.5
 
         self.autocapitalizationType = .none
-        self.font = UIFont(name: "Montserrat-Light", size: 16)
+        self.font = UIFont(name: "Montserrat-Medium", size: 17)
+        self.attributedPlaceholder =
+        NSAttributedString(string: "placeholder text", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
     }
     
     var textPadding = UIEdgeInsets(

@@ -12,7 +12,7 @@ final class TreksScreenViewCell: UITableViewCell {
     let name: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont(name: "Montserrat-Regular", size: 17)
         label.textColor = .black
         return label
     }()
@@ -20,7 +20,7 @@ final class TreksScreenViewCell: UITableViewCell {
     let difficult: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.font = UIFont(name: "Montserrat-Light", size: 14)
         label.textColor = .black
         return label
     }()
@@ -28,7 +28,7 @@ final class TreksScreenViewCell: UITableViewCell {
     let days: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont(name: "Montserrat-Light", size: 14)
         label.textColor = .black
         return label
     }()
@@ -36,7 +36,7 @@ final class TreksScreenViewCell: UITableViewCell {
     let region: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont(name: "Montserrat-Light", size: 14)
         label.textColor = .black
         return label
     }()
@@ -44,7 +44,7 @@ final class TreksScreenViewCell: UITableViewCell {
     let rating: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont(name: "Montserrat-Light", size: 14)
         label.textColor = .black
         return label
     }()

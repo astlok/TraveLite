@@ -11,6 +11,7 @@ class PopUp: UIView {
     fileprivate let label: UILabel = {
         let label = UILabel()
         label.text = "Настройки"
+        label.textAlignment = .center
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         label.font = UIFont(name: "Montserrat-Regular", size: 24)
         return label
@@ -21,17 +22,17 @@ class PopUp: UIView {
         btn.backgroundColor = UIColor(red: 0.835, green: 0.835, blue: 0.788, alpha: 1)
         btn.layer.cornerRadius = 10
         btn.setTitle("Изменить", for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 14)
+        btn.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
         btn.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
         return btn
     }()
     
     fileprivate let cancel: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor(red: 0.583, green: 0.583, blue: 0.583, alpha: 1)
+        btn.backgroundColor = .systemGray4
         btn.layer.cornerRadius = 10
         btn.setTitle("Отменить", for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 14)
+        btn.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
         btn.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
         return btn
     }()
@@ -75,38 +76,38 @@ class PopUp: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerXAnchor.constraint(equalTo: container.view.centerXAnchor).isActive = true
-        label.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        label.widthAnchor.constraint(equalTo: container.view.safeAreaLayoutGuide.widthAnchor, multiplier: 7/8).isActive = true
         label.heightAnchor.constraint(equalToConstant: 30).isActive = true
         label.topAnchor.constraint(equalTo: container.view.topAnchor, constant: 20).isActive = true
         
         nameInput.translatesAutoresizingMaskIntoConstraints = false
         nameInput.centerXAnchor.constraint(equalTo: container.view.centerXAnchor).isActive = true
-        nameInput.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        nameInput.widthAnchor.constraint(equalTo: container.view.safeAreaLayoutGuide.widthAnchor, multiplier: 7/8).isActive = true
         nameInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
         nameInput.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 30).isActive = true
         
         passwordInput.translatesAutoresizingMaskIntoConstraints = false
         passwordInput.centerXAnchor.constraint(equalTo: container.view.centerXAnchor).isActive = true
-        passwordInput.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        passwordInput.widthAnchor.constraint(equalTo: container.view.safeAreaLayoutGuide.widthAnchor, multiplier: 7/8).isActive = true
         passwordInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
         passwordInput.topAnchor.constraint(equalTo: nameInput.bottomAnchor, constant: 10).isActive = true
         
         repeatPasswordInput.translatesAutoresizingMaskIntoConstraints = false
         repeatPasswordInput.centerXAnchor.constraint(equalTo: container.view.centerXAnchor).isActive = true
-        repeatPasswordInput.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        repeatPasswordInput.widthAnchor.constraint(equalTo: container.view.safeAreaLayoutGuide.widthAnchor, multiplier: 7/8).isActive = true
         repeatPasswordInput.heightAnchor.constraint(equalToConstant: 55).isActive = true
         repeatPasswordInput.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: 10).isActive = true
         
         submit.translatesAutoresizingMaskIntoConstraints = false
         submit.centerXAnchor.constraint(equalTo: container.view.centerXAnchor).isActive = true
-        submit.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        submit.widthAnchor.constraint(equalTo: container.view.safeAreaLayoutGuide.widthAnchor, multiplier: 7/8).isActive = true
         submit.heightAnchor.constraint(equalToConstant: 55).isActive = true
         submit.topAnchor.constraint(equalTo: repeatPasswordInput.bottomAnchor, constant: 20).isActive = true
         submit.addTarget(self, action: #selector(didTabSubmitButton), for: .touchUpInside)
         
         cancel.translatesAutoresizingMaskIntoConstraints = false
         cancel.centerXAnchor.constraint(equalTo: container.view.centerXAnchor).isActive = true
-        cancel.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        cancel.widthAnchor.constraint(equalTo: container.view.safeAreaLayoutGuide.widthAnchor, multiplier: 7/8).isActive = true
         cancel.heightAnchor.constraint(equalToConstant: 55).isActive = true
         cancel.topAnchor.constraint(equalTo: submit.bottomAnchor, constant: 10).isActive = true
         cancel.addTarget(self, action: #selector(didTabCancelButton), for: .touchUpInside)
@@ -114,7 +115,7 @@ class PopUp: UIView {
         container.view.translatesAutoresizingMaskIntoConstraints = false
         container.view.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         container.view.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        container.view.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        container.view.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 14/16).isActive = true
         container.view.heightAnchor.constraint(equalToConstant: 425).isActive = true
     }
     

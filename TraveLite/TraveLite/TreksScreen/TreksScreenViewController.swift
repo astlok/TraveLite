@@ -10,6 +10,15 @@ import UIKit
 
 final class TreksScreenViewController: UIViewController {
     private let tableView = UITableView()
+    let label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Montserrat-Regular", size: 22)
+        label.textColor = .black
+        label.text = "Все маршруты"
+        label.textAlignment = .center
+        return label
+    }()
     
 	private let output: TreksScreenViewOutput
 
@@ -43,9 +52,17 @@ final class TreksScreenViewController: UIViewController {
         tableView.refreshControl = refreshControl
         
         view.addSubview(tableView)
+        view.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.topAnchor).isActive = true
+        label.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
+        
         
         tableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
         

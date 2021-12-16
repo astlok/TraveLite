@@ -117,7 +117,7 @@ final class AuthRegScreenViewController: UIViewController {
     
     let submitButton: SubmitButtonView = {
         let button = SubmitButtonView()
-        button.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 14)
+        button.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
         button.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.8), for: .normal)
         button.addTarget(self, action: #selector(tapSubmitButton), for: .touchUpInside)
         
@@ -244,20 +244,6 @@ final class AuthRegScreenViewController: UIViewController {
         
         bottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomConstraint?.isActive = true
-        
-//        let topConst:  CGFloat =  {
-//            var const: CGFloat
-//            if isAuthScreen {
-//                const = 150
-//            } else {
-//                const = 200
-//            }
-//            return const
-//        }()
-//        
-//        topLabelConstraint?.isActive = false
-//        topLabelConstraint = textLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topConst)
-//        topLabelConstraint?.isActive = true
 
         self.view.layoutIfNeeded()
     }
@@ -362,6 +348,9 @@ final class AuthRegScreenViewController: UIViewController {
         submitButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
         regAuthButton.setTitle("Авторизация", for: .normal)
+        regAuthButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+        regAuthButton.layer.cornerRadius = 10
+        regAuthButton.backgroundColor = .systemGray4
         contentView.addSubview(regAuthButton)
         regAuthButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         regAuthButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 15).isActive = true
@@ -410,6 +399,9 @@ final class AuthRegScreenViewController: UIViewController {
         submitButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
         regAuthButton.setTitle("Регистрация", for: .normal)
+        regAuthButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+        regAuthButton.layer.cornerRadius = 10
+        regAuthButton.backgroundColor = .systemGray4
         contentView.addSubview(regAuthButton)
         regAuthButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         regAuthButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 15).isActive = true
