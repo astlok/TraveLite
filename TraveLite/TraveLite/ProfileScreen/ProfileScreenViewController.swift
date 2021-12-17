@@ -204,7 +204,8 @@ extension ProfileScreenViewController: UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0)
+//            output.didSelectedProfileImage(image: editedImage, id: user?.id ?? 0)
+            profileImageView.image = editedImage
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImageView.image = originalImage
         }
